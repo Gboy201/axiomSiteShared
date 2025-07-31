@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - Axiom Startup</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body class="form-page">
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-title">Axiom</a>
+        </div>
+        <div class="nav-right">
+            <a href="apply.html" class="nav-link">Apply</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="sponsors.html" class="nav-link">Sponsors</a>
+            <a href="schedule.html" class="nav-link">Schedule</a>
+            <a href="team.html" class="nav-link">Team</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </nav>
+
+    <div id="page-container">
+        <div id="apply-content">
+            <h1>Axiom Startup Competition Application Form</h1>
+            <p style="color: #ff6b6b; font-weight: bold; margin-bottom: 30px;">PLEASE MAKE UR RESPONSES INTERESTING AND USE YOUR BRAIN. WE CAN SENSE CHAT GPT.</p>
+            
+            <div id="form-container">
+                <form id="application-form" action="/api/submit-application" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="full_name">What is you're full name? <span class="required">*</span></label>
+                        <input type="text" id="full_name" name="full_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">What's your email? <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">What will your age be at the startup of September, 2025? <span class="required">*</span></label>
+                        <input type="number" id="age" name="age" min="13" max="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="school">What school do you go to? <span class="required">*</span></label>
+                        <input type="text" id="school" name="school" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="startup_name">What is the name of your startup? Bonus points if it doesn't end in "-ly" or have "AI" in it <span class="required">*</span></label>
+                        <input type="text" id="startup_name" name="startup_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Are you an individual participant or part of a group? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="participant_type" value="individual" required>
+                                <span class="radio-custom"></span>
+                                Individual Participant (Lone wolf mode activated)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="participant_type" value="group" required>
+                                <span class="radio-custom"></span>
+                                Group
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="team_members">List your team members below <span class="required">*</span></label>
+                        <textarea id="team_members" name="team_members" rows="4" required placeholder="If individual, just write 'N/A' or 'Solo founder'"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="startup_idea">What's your startup idea? Describe what you'll pitch to our experienced founders. Pretend you're explaining it to your grandma. Make it interesting but very informative. We want to understand your vision fast. <span class="required">*</span></label>
+                        <textarea id="startup_idea" name="startup_idea" rows="6" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Can you join a Google Meet with our organizers? We'll discuss your idea and provide any feedback we have so that your pitch goes well during the competition. <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="google_meet" value="yes" required>
+                                <span class="radio-custom"></span>
+                                Yes, I can make time
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="google_meet" value="no" required>
+                                <span class="radio-custom"></span>
+                                No, I'm too busy revolutionizing the world
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Will you be able to provide an MVP before September? This won't affect your acceptance. An MVP can be anything from a working prototype to a detailed mockup. <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="mvp_ready" value="yes" required>
+                                <span class="radio-custom"></span>
+                                Yes, we'll have something tangible
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="mvp_ready" value="no" required>
+                                <span class="radio-custom"></span>
+                                No, but we'll have detailed plans
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mvp_details">Expand on the MVP... <span class="required">*</span></label>
+                        <textarea id="mvp_details" name="mvp_details" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="social_links">Please link your LinkedIn or socials (optional)</label>
+                        <input type="url" id="social_links" name="social_links" placeholder="https://linkedin.com/in/yourname or https://twitter.com/yourhandle">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="favorite_startup">What's your favorite startup and WHY? <span class="required">*</span></label>
+                        <textarea id="favorite_startup" name="favorite_startup" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="response_speed">Do you respond fast? (Will significantly impact your application, don't lie.) <span class="required">*</span></label>
+                        <input type="text" id="response_speed" name="response_speed" required placeholder="Be honest...">
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreement" required>
+                            <span class="checkbox-custom"></span>
+                            <div class="agreement-text">
+                                <strong>By submitting this application, you confirm that:</strong><br>
+                                - All information provided is accurate (lying is bad for business and karma)<br>
+                                - You're genuinely committed to participating if selected<br>
+                                - You understand this is a learning experience, not Shark Tank<br>
+                                - You won't sue us if our mentors suggest improvements to your "revolutionary" idea
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="submit-message">Ready to submit? Double-check your answers and remember every successful entrepreneur started exactly where you are now. The only difference? They locked in.</p>
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dragon Sprite -->
+    <div class="page-dragon"></div>
+    
+    <!-- Go Back Button -->
+    <div class="go-back-container">
+        <a href="#" class="go-back-btn" onclick="goBackToGame()">Go Back</a>
+    </div>
+    
+    <!-- Form Submission JavaScript (Fallback for Python server) -->
+    <script>
+        document.getElementById('application-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Get form data
+                const formData = new FormData(document.getElementById('application-form'));
+                const data = {};
+                
+                for (let [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                
+                // Submit to Node.js API
+                const response = await fetch('/api/submit-application', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    // Success - redirect to thank you page
+                    window.location.href = result.redirect || '/thank-you.html';
+                } else {
+                    // Handle errors
+                    if (result.errors && Array.isArray(result.errors)) {
+                        alert('Please fix these errors:\n\n' + result.errors.join('\n'));
+                    } else {
+                        alert(result.error || 'An error occurred. Please try again.');
+                    }
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Network error. Please check your connection and try again.');
+            } finally {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+
+    </script>
+    
+    <!-- Hamburger Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navRight = document.querySelector('.nav-right');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navRight.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navRight.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!hamburger.contains(event.target) && !navRight.contains(event.target)) {
+                    hamburger.classList.remove('active');
+                    navRight.classList.remove('active');
+                }
+            });
+        });
+
+        function goBackToGame() {
+            // Store the current page for portal positioning
+            localStorage.setItem('returnFromPage', 'apply.html');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,20 @@
+{
+  "name": "axiom-startup-website",
+  "version": "1.0.0",
+  "description": "Axiom Startup Competition Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build needed for static site'",
+    "start": "serve ."
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.8"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

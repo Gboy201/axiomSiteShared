@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Axiom Startup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="form-page">
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-title">Axiom</a>
+        </div>
+        <div class="nav-right">
+            <a href="apply.html" class="nav-link">Apply</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="sponsors.html" class="nav-link">Sponsors</a>
+            <a href="schedule.html" class="nav-link">Schedule</a>
+            <a href="team.html" class="nav-link">Team</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </nav>
+
+    <div id="page-container">
+        <div id="thank-you-content">
+            <div class="thank-you-message">
+                <h1>🎉 Thank You!</h1>
+                <p class="main-message">Thank you for submitting your application! We look forward to getting in touch.</p>
+                
+                <div class="next-steps">
+                    <h2>What's Next?</h2>
+                    <div class="steps-grid">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-text">
+                                <h3>Review Process</h3>
+                                <p>Our team will carefully review your application within the next few days.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-text">
+                                <h3>Follow-Up</h3>
+                                <p>If you indicated availability for a Google Meet, we'll reach out to schedule a chat.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-text">
+                                <h3>Competition Day</h3>
+                                <p>Selected participants will receive details about the pitch competition event.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <p class="cta-text">In the meantime, feel free to explore more about Axiom Startup!</p>
+                    <div class="button-group">
+                        <a href="index.html" class="cta-btn primary">Return Home</a>
+                        <a href="about.html" class="cta-btn secondary">Learn More</a>
+                        <a href="schedule.html" class="cta-btn secondary">Event Schedule</a>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <p>Questions? Feel free to reach out through our <a href="contact.html">contact page</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dragon Sprite -->
+    <div class="page-dragon"></div>
+
+    <!-- Go Back Button -->
+    <div class="go-back-container">
+        <a href="#" class="go-back-btn" onclick="goBackToGame()">Go Back</a>
+    </div>
+
+    <!-- Hamburger Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navRight = document.querySelector('.nav-right');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navRight.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navRight.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!hamburger.contains(event.target) && !navRight.contains(event.target)) {
+                    hamburger.classList.remove('active');
+                    navRight.classList.remove('active');
+                }
+            });
+        });
+
+        function goBackToGame() {
+            // Store the current page for portal positioning
+            localStorage.setItem('returnFromPage', 'thank-you.html');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html> 

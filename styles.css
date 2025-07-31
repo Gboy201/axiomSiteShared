@@ -1,0 +1,1675 @@
+/* Block Craft Font */
+@font-face {
+    font-family: 'Block Craft';
+    src: url('./block-craft-font/BlockCraftMedium-PVLzd.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 8-bit Fantasy Theme Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    background: #1a1a2e;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Enable scrolling by default */
+}
+
+/* Game page specific styles - disable scrolling only for the main game */
+body.game-page {
+    overflow: hidden;
+    user-select: none;
+}
+
+/* Form pages need scrolling and text selection */
+body.form-page {
+    overflow-y: auto;
+    user-select: text;
+}
+
+/* Navigation Bar */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #000000;
+    border-bottom: 2px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-title {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-title:hover {
+    color: #cccccc;
+    transform: translateY(-1px);
+}
+
+.nav-right {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-link {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 14px;
+    color: #cccccc;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.nav-link:active {
+    transform: translateY(0);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: #ffffff;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hamburger Animation */
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    #navbar {
+        padding: 0 20px;
+    }
+    
+    .nav-right {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 300px;
+        height: calc(100vh - 60px);
+        background: #000000;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 20px;
+        gap: 20px;
+        transition: right 0.3s ease;
+        border-left: 2px solid #333;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-right.active {
+        right: 0;
+    }
+    
+    .nav-link {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 16px;
+        border-bottom: 1px solid #333;
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-title {
+        font-size: 20px;
+    }
+    
+    .nav-right {
+        width: 250px;
+    }
+    
+    #navbar {
+        padding: 0 15px;
+    }
+}
+
+/* Page Content Styles */
+#page-container {
+    padding-top: 60px; /* Account for fixed navbar */
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0b0b1f 100%);
+    color: #ffffff;
+}
+
+#page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    text-align: center;
+}
+
+#page-content h1 {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 48px;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#page-content p {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 18px;
+    color: #cccccc;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    #page-content {
+        padding: 40px 20px;
+    }
+    
+    #page-content h1 {
+        font-size: 36px;
+    }
+    
+    #page-content p {
+        font-size: 16px;
+    }
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #000000 0%, #2D1B69 50%, #1e3a8a 100%);
+    padding-top: 60px; /* Account for fixed navbar */
+}
+
+/* Map Title Overlay */
+#map-title-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none; /* Allow clicking through to the game */
+    transition: opacity 1s ease-out;
+}
+
+.map-title-content {
+    text-align: center;
+    animation: mapTitleFadeIn 2s ease-out;
+}
+
+.map-main-title {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 5rem;
+    color: white;
+    text-shadow: 4px 4px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.map-subtitle {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 2rem;
+    color: #cccccc;
+    text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
+    font-weight: 400;
+}
+
+@keyframes mapTitleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Game Canvas */
+#game-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Mobile Controls */
+#mobile-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 100;
+}
+
+.dpad {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.dpad-btn {
+    width: 50px;
+    height: 50px;
+    background: #4a4a4a;
+    border: 2px solid #8b8b8b;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s;
+}
+
+.dpad-btn:active {
+    background: #6a6a6a;
+    transform: scale(0.95);
+}
+
+.dpad-btn[data-direction="up"] { grid-column: 2; grid-row: 1; }
+.dpad-btn[data-direction="left"] { grid-column: 1; grid-row: 2; }
+.dpad-btn[data-direction="right"] { grid-column: 3; grid-row: 2; }
+.dpad-btn[data-direction="down"] { grid-column: 2; grid-row: 3; }
+
+.dpad-middle {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+}
+
+
+
+/* Room Modal */
+#room-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#room-modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.room-content {
+    background: #2c1810;
+    border: 4px solid #8b4513;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    height: 80%;
+    max-height: 500px;
+    padding: 20px;
+    position: relative;
+    overflow-y: auto;
+    animation: roomEnterAnimation 0.5s ease-out;
+}
+
+@keyframes roomEnterAnimation {
+    from {
+        transform: scale(0.8) rotateY(10deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: #8b0000;
+    border: 2px solid #ff4444;
+    color: white;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+}
+
+.close-btn:hover {
+    background: #ff4444;
+}
+
+#room-title {
+    color: #ffd700;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 0px #8b4513;
+    animation: titleSlideIn 0.7s ease-out 0.2s both;
+}
+
+@keyframes titleSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#room-body {
+    color: #f0f0f0;
+    font-size: 10px;
+    line-height: 1.6;
+    animation: contentFadeIn 0.8s ease-out 0.4s both;
+}
+
+@keyframes contentFadeIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#player-in-room {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 32px;
+    height: 32px;
+    background: #4169e1;
+    border: 2px solid #000;
+    animation: playerBounce 2s ease-in-out infinite;
+}
+
+@keyframes playerBounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #mobile-controls {
+        display: block;
+    }
+    
+
+    
+    .room-content {
+        width: 95%;
+        height: 85%;
+        padding: 15px;
+    }
+    
+    #room-title {
+        font-size: 12px;
+    }
+    
+    #room-body {
+        font-size: 8px;
+    }
+    
+    .map-main-title {
+        font-size: 3rem;
+    }
+    
+    .map-subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dpad-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+#character-sprite, #character-sprite-static {
+    position: absolute;
+    z-index: 50;
+    pointer-events: none;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    /* Realistic diagonal shadow - light source from upper-left */
+    filter: drop-shadow(8px -6px 12px rgba(0, 0, 0, 0.4)) 
+            drop-shadow(12px -8px 20px rgba(0, 0, 0, 0.2));
+}
+
+.pixel-perfect {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+} 
+
+/* Apply Page Styles */
+#apply-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#apply-content h1 {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 48px;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#apply-content p {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 20px;
+    color: #cccccc;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+#form-container {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #ffd700;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#application-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.required {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #444;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="url"]:focus,
+.form-group textarea:focus {
+    border-color: #ffd700;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #888;
+    font-family: 'Block Craft', cursive, serif;
+}
+
+.radio-group,
+.checkbox-group {
+    margin-top: 10px;
+}
+
+.radio-label,
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 14px;
+    color: #cccccc;
+    line-height: 1.4;
+}
+
+.radio-label input[type="radio"],
+.checkbox-label input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.radio-custom,
+.checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffd700;
+    border-radius: 50%;
+    margin-right: 12px;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.checkbox-custom {
+    border-radius: 4px;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #ffd700;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+    content: '✓';
+    color: #ffd700;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Focus styles for accessibility */
+.radio-label input[type="radio"]:focus + .radio-custom,
+.checkbox-label input[type="checkbox"]:focus + .checkbox-custom {
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    border-color: #ffed4e;
+}
+
+/* Hover styles */
+.radio-label:hover .radio-custom,
+.checkbox-label:hover .checkbox-custom {
+    border-color: #ffed4e;
+    transform: scale(1.05);
+}
+
+/* Invalid field styling */
+.form-group input:invalid,
+.form-group textarea:invalid {
+    border-color: #ff6b6b;
+}
+
+.form-group input:invalid:focus,
+.form-group textarea:invalid:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+}
+
+.agreement-text {
+    line-height: 1.6;
+}
+
+.agreement-text strong {
+    color: #ffd700;
+}
+
+.submit-message {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 16px;
+    color: #cccccc;
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border: none;
+    border-radius: 8px;
+    color: #000000;
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Success/Error Messages */
+.form-message {
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.form-message.success {
+    background: rgba(46, 125, 50, 0.2);
+    border: 2px solid #4caf50;
+    color: #4caf50;
+}
+
+.form-message.error {
+    background: rgba(211, 47, 47, 0.2);
+    border: 2px solid #f44336;
+    color: #f44336;
+}
+
+/* Thank You Page Styles */
+#thank-you-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.thank-you-message h1 {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 48px;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.main-message {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 20px;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.next-steps {
+    margin: 50px 0;
+}
+
+.next-steps h2 {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 32px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 30px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover {
+    border-color: #ffd700;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.2);
+}
+
+.step-number {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #000000;
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 24px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.step-text h3 {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 18px;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.step-text p {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 14px;
+    color: #cccccc;
+    line-height: 1.5;
+}
+
+.cta-section {
+    margin: 50px 0;
+}
+
+.cta-text {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 18px;
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 16px 24px;
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cta-btn.primary {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #000000;
+    border: 2px solid #ffd700;
+}
+
+.cta-btn.primary:hover {
+    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+}
+
+.cta-btn.secondary:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.2);
+}
+
+.contact-info {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #444;
+}
+
+.contact-info p {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 16px;
+    color: #cccccc;
+}
+
+.contact-info a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffed4e;
+    text-decoration: underline;
+}
+
+/* Responsive Design for Thank You Page */
+@media screen and (max-width: 768px) {
+    #thank-you-content {
+        padding: 30px 15px;
+    }
+
+    .thank-you-message h1 {
+        font-size: 36px;
+    }
+
+    .main-message {
+        font-size: 18px;
+    }
+
+    .next-steps h2 {
+        font-size: 28px;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .step-item {
+        padding: 20px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+/* About Page Styles */
+#about-content {
+    min-height: 100vh;
+    background: url('crystalCave.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 55px 20px 40px 20px; /* Further reduced space between navbar and About title */
+    position: relative;
+}
+
+.about-main-content {
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.about-title {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 48px;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-text-container {
+    background: rgba(0, 0, 0, 0.6); /* 60% opacity black box */
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.about-description {
+    margin-bottom: 60px;
+}
+
+.about-description p {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+.about-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.about-section {
+    text-align: left;
+}
+
+.about-section h2 {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 24px;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.about-section p {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.7;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+/* Responsive design for about page */
+@media screen and (max-width: 768px) {
+    #about-content {
+        padding: 45px 15px 30px 15px;
+        background-attachment: scroll; /* Better performance on mobile */
+    }
+
+    .about-main-content {
+        max-width: 100%;
+    }
+
+    .about-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .about-text-container {
+        padding: 30px;
+    }
+
+    .about-description p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .about-section h2 {
+        font-size: 20px;
+    }
+
+    .about-section p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .about-sections {
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #about-content {
+        padding: 60px 10px 20px 10px;
+    }
+
+    .about-title {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .about-text-container {
+        padding: 25px;
+    }
+
+    .about-description {
+        margin-bottom: 40px;
+    }
+
+    .about-description p {
+        font-size: 15px;
+    }
+
+    .about-section h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .about-section p {
+        font-size: 13px;
+    }
+
+    .about-sections {
+        gap: 25px;
+    }
+}
+
+/* Global Dragon Sprite */
+.page-dragon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background: url('dragon.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 1000;
+    pointer-events: none;
+    animation: dragonHover 3s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes dragonHover {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Hide dragon on very small screens to avoid clutter */
+@media screen and (max-width: 480px) {
+    .page-dragon {
+        width: 60px;
+        height: 60px;
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+/* Go Back Button */
+.go-back-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.go-back-btn {
+    background: linear-gradient(45deg, #1a1a1a, #333333);
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    padding: 12px 24px;
+    font-family: 'Block Craft', Arial, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+}
+
+.go-back-btn:hover {
+    background: linear-gradient(45deg, #333333, #4a4a4a);
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.go-back-btn:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments for go back button */
+@media screen and (max-width: 768px) {
+    .go-back-container {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .go-back-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .go-back-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}
+
+/* Contact Page Styles */
+#contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px 40px 40px;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    border: 2px solid #ffd700;
+}
+
+#contact-content h1 {
+    font-family: 'Block Craft', Arial, sans-serif;
+    font-size: 2.5rem;
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.contact-intro {
+    font-family: 'Block Craft', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Contact form uses the same styles as apply form */
+#contact-content .form-group {
+    margin-bottom: 25px;
+}
+
+#contact-content label {
+    display: block;
+    font-family: 'Block Craft', Arial, sans-serif;
+    font-size: 1rem;
+    color: #ffd700;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#contact-content input[type="text"],
+#contact-content input[type="email"],
+#contact-content textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-family: 'Block Craft', Arial, sans-serif;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    border-radius: 8px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+#contact-content input[type="text"]:focus,
+#contact-content input[type="email"]:focus,
+#contact-content textarea:focus {
+    outline: none;
+    border-color: #ffd700;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+#contact-content textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#contact-content .submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-family: 'Block Craft', Arial, sans-serif;
+    font-size: 1.1rem;
+    background: linear-gradient(45deg, #ffd700, #ffed4a);
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#contact-content .submit-btn:hover {
+    background: linear-gradient(45deg, #ffed4a, #fff59d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+#contact-content .submit-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+}
+
+#contact-content .form-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Block Craft', Arial, sans-serif;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+#contact-content .form-message.success {
+    background: rgba(46, 160, 67, 0.2);
+    color: #4caf50;
+    border: 2px solid #4caf50;
+}
+
+#contact-content .form-message.error {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 2px solid #f44336;
+}
+
+#contact-content .required {
+    color: #ff6b6b;
+}
+
+#contact-content input::placeholder,
+#contact-content textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+/* Responsive adjustments for contact page */
+@media screen and (max-width: 768px) {
+    #contact-content {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    #contact-content h1 {
+        font-size: 2rem;
+    }
+    
+    .contact-intro {
+        font-size: 1rem;
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #contact-content {
+        padding: 20px 15px;
+        margin: 10px;
+    }
+    
+    #contact-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-intro {
+        font-size: 0.9rem;
+        padding: 12px;
+        margin-bottom: 25px;
+    }
+    
+    #contact-content input[type="text"],
+    #contact-content input[type="email"],
+    #contact-content textarea {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    #contact-content .submit-btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* Responsive adjustments for apply page */
+@media (max-width: 768px) {
+    #apply-content {
+        padding: 30px 15px;
+    }
+    
+    #apply-content h1 {
+        font-size: 36px;
+    }
+    
+    #apply-content p {
+        font-size: 18px;
+    }
+    
+    #form-container {
+        padding: 15px;
+        margin: 0 10px;
+    }
+    
+    #form-container iframe {
+        height: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    #apply-content h1 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+    
+    #apply-content p {
+        font-size: 16px;
+    }
+    
+    #form-container {
+        border-width: 1px;
+        padding: 10px;
+    }
+    
+    #form-container iframe {
+        height: 500px;
+    }
+}
+
+/* Schedule Page Styles */
+.schedule-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    padding-top: 60px; /* Account for fixed navbar */
+}
+
+.schedule-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.schedule-bg-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.schedule-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+}
+
+.schedule-title {
+    font-family: 'Block Craft', cursive, serif;
+    font-size: 42px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-weight: normal;
+}
+
+.schedule-content {
+    max-width: 800px;
+    width: 100%;
+}
+
+.schedule-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin-bottom: 32px;
+    font-family: 'Block Craft', cursive, serif;
+    line-height: 1.4;
+}
+
+.schedule-time {
+    font-size: 24px;
+    color: #ffffff;
+    margin-right: 15px;
+    min-width: 140px;
+    flex-shrink: 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.schedule-desc {
+    font-size: 24px;
+    color: #ffffff;
+    flex: 1;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.schedule-item.highlight .schedule-desc {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 768px) {
+    .schedule-container {
+        padding: 30px 15px;
+    }
+    
+    .schedule-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+    
+    .schedule-time,
+    .schedule-desc {
+        font-size: 18px;
+    }
+    
+    .schedule-item {
+        margin-bottom: 28px;
+    }
+    
+    .schedule-time {
+        min-width: 120px;
+        margin-right: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .schedule-container {
+        padding: 20px 10px;
+    }
+    
+    .schedule-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .schedule-time,
+    .schedule-desc {
+        font-size: 14px;
+    }
+    
+    .schedule-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 24px;
+    }
+    
+    .schedule-time {
+        margin-bottom: 5px;
+        margin-right: 0;
+        min-width: auto;
+    }
+}
+
+/* Sponsors Page Styles */
+.sponsors-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.sponsor-logo {
+    margin-bottom: 40px;
+}
+
+.sponsor-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.sponsor-image:hover {
+    transform: scale(1.05);
+}
+
+.sponsors-text {
+    color: #ffffff;
+    font-family: 'Block Craft', Arial, sans-serif;
+}
+
+.sponsors-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.sponsors-text a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px #ffd700;
+}
+
+@media screen and (max-width: 768px) {
+    .sponsors-content {
+        padding: 30px 15px;
+    }
+    
+    .sponsor-image {
+        max-width: 250px;
+    }
+    
+    .sponsors-text p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sponsor-image {
+        max-width: 200px;
+    }
+    
+    .sponsors-text p {
+        font-size: 14px;
+    }
+} 

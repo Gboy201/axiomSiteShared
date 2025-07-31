@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - Axiom Startup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="form-page">
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-title">Axiom</a>
+        </div>
+        <div class="nav-right">
+            <a href="apply.html" class="nav-link">Apply</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="sponsors.html" class="nav-link">Sponsors</a>
+            <a href="schedule.html" class="nav-link">Schedule</a>
+            <a href="team.html" class="nav-link">Team</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </nav>
+
+    <div id="page-container">
+        <div id="page-content">
+            <h1>Team</h1>
+            <p>This page is under construction.</p>
+        </div>
+    </div>
+    
+    <!-- Dragon Sprite -->
+    <div class="page-dragon"></div>
+    
+    <!-- Go Back Button -->
+    <div class="go-back-container">
+        <a href="#" class="go-back-btn" onclick="goBackToGame()">Go Back</a>
+    </div>
+    
+    <!-- Hamburger Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navRight = document.querySelector('.nav-right');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navRight.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navRight.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!hamburger.contains(event.target) && !navRight.contains(event.target)) {
+                    hamburger.classList.remove('active');
+                    navRight.classList.remove('active');
+                }
+            });
+        });
+
+        function goBackToGame() {
+            // Store the current page for portal positioning
+            localStorage.setItem('returnFromPage', 'team.html');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html> 

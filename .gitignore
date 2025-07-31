@@ -1,0 +1,29 @@
+# Axiom Startup Application Storage
+# Keep applicant data private and out of version control
+axiom_applications/
+axiom_applications_temp/  # Development/testing applications
+
+# Contact Form Storage
+# Keep contact messages private and out of version control
+axiom_contacts/
+axiom_contacts_temp/  # Development/testing contacts
+
+# Email configuration (local version with your actual email settings)
+email_config_local.php
+
+# Common development files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup 
