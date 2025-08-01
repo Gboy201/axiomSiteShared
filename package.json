@@ -4,12 +4,13 @@
   "description": "Axiom Startup Competition Website",
   "main": "index.html",
   "scripts": {
+    "build": "node build.js",
     "dev": "vercel dev",
-    "build": "echo 'No build needed for static site'",
     "start": "serve ."
   },
   "dependencies": {
-    "nodemailer": "^6.9.8"
+    "nodemailer": "^6.9.8",
+    "csv-stringify": "^6.4.6"
   },
   "devDependencies": {
     "vercel": "^33.0.1"

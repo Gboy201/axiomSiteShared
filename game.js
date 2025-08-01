@@ -966,24 +966,43 @@ class StartupQuest {
         // Mobile controls
         const dpadButtons = document.querySelectorAll('.dpad-btn');
         dpadButtons.forEach(btn => {
+            // Touch events
             btn.addEventListener('touchstart', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 this.touchDirection = btn.dataset.direction;
-            });
+                btn.classList.add('pressed');
+            }, { passive: false });
             
             btn.addEventListener('touchend', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 this.touchDirection = null;
-            });
+                btn.classList.remove('pressed');
+            }, { passive: false });
             
+            btn.addEventListener('touchcancel', (e) => {
+                e.preventDefault();
+                this.touchDirection = null;
+                btn.classList.remove('pressed');
+            }, { passive: false });
+            
+            // Mouse events for desktop testing
             btn.addEventListener('mousedown', (e) => {
                 e.preventDefault();
                 this.touchDirection = btn.dataset.direction;
+                btn.classList.add('pressed');
             });
             
             btn.addEventListener('mouseup', (e) => {
                 e.preventDefault();
                 this.touchDirection = null;
+                btn.classList.remove('pressed');
+            });
+            
+            btn.addEventListener('mouseleave', (e) => {
+                this.touchDirection = null;
+                btn.classList.remove('pressed');
             });
         });
         
