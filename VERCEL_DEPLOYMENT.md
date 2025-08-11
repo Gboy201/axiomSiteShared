@@ -40,7 +40,7 @@ vercel
 3. Click "Import Project"
 4. Select your GitHub repository
 5. Configure project settings (Vercel will auto-detect)
-6. Click "Deploy"
+6. Click "Deploy"T
 
 ### 3. Configure Environment Variables
 

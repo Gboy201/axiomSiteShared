@@ -1,16 +1,16 @@
 const nodemailer = require('nodemailer');
 
-// Email configuration - you can set these as Vercel environment variables
+// Email configuration - Optimized for Gmail
 const EMAIL_CONFIG = {
-  notification_email: process.env.NOTIFICATION_EMAIL || 'your-email@example.com',
+  notification_email: process.env.NOTIFICATION_EMAIL || 'gursaaz@axiomstartups.com',
   email_subject: 'New Contact Form Submission - Axiom Startup',
   send_notifications: process.env.SEND_NOTIFICATIONS !== 'false', // true by default
-  from_email: process.env.FROM_EMAIL || 'noreply@axiomstartup.com',
+  from_email: process.env.FROM_EMAIL || process.env.SMTP_USER || 'gursaaz@gmail.com',
   from_name: 'Axiom Startup Contact Form',
-  smtp_host: process.env.SMTP_HOST,
-  smtp_port: process.env.SMTP_PORT || 587,
-  smtp_user: process.env.SMTP_USER,
-  smtp_pass: process.env.SMTP_PASS
+  smtp_host: process.env.SMTP_HOST || 'smtp.gmail.com',
+  smtp_port: parseInt(process.env.SMTP_PORT) || 587,
+  smtp_user: process.env.SMTP_USER || 'gursaaz@gmail.com',
+  smtp_pass: process.env.SMTP_PASS || 'ckcx hhxk zzdg tyra'  // your gmail app password
 };
 
 // Function to sanitize input
@@ -83,6 +83,111 @@ function createEmailBody(contactData) {
   `;
 }
 
+// Function to create confirmation email for the contact submitter
+function createContactConfirmationEmailBody(contactData) {
+  const { name, organization, email, message } = contactData;
+  
+  return `
+    <html>
+    <head>
+      <title>Message Received - Axiom Startup Competition</title>
+      <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; }
+        .header { background-color: #ffd700; color: #000; padding: 20px; text-align: center; border-radius: 5px; margin-bottom: 20px; }
+        .field { margin-bottom: 15px; padding: 10px; background-color: #f9f9f9; border-left: 4px solid #ffd700; }
+        .field-label { font-weight: bold; color: #333; }
+        .field-value { margin-top: 5px; word-wrap: break-word; }
+        .footer { background-color: #f0f0f0; padding: 15px; text-align: center; font-size: 12px; color: #666; margin-top: 20px; border-radius: 5px; }
+        .thank-you { font-size: 18px; color: #000; margin-bottom: 15px; text-align: center; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>📬 Message Received!</h1>
+          <p class="thank-you">Thank you for contacting us!</p>
+          <p>We've received your message and will get back to you soon.</p>
+        </div>
+        
+        <h2 style="color: #333; margin-bottom: 20px;">📋 Your Message:</h2>
+        
+        <div class="field">
+          <div class="field-label">👤 Name</div>
+          <div class="field-value">${name}</div>
+        </div>
+        
+        <div class="field">
+          <div class="field-label">🏢 Organization</div>
+          <div class="field-value">${organization}</div>
+        </div>
+        
+        <div class="field">
+          <div class="field-label">📧 Email</div>
+          <div class="field-value">${email}</div>
+        </div>
+        
+        <div class="field">
+          <div class="field-label">💬 Message</div>
+          <div class="field-value">${message}</div>
+        </div>
+        
+        <div class="footer">
+          <p><strong>What happens next?</strong></p>
+          <p>• Our team will review your message</p>
+          <p>• We'll respond within 24-48 hours</p>
+          <p>• Keep an eye on your inbox (and spam folder!)</p>
+          <br>
+          <p>Thank you for reaching out to Axiom Startup Competition!</p>
+          <p>Sent on: ${new Date().toLocaleString()}</p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+// Function to send confirmation email to the contact submitter
+async function sendContactConfirmationEmail(contactData) {
+  if (!EMAIL_CONFIG.send_notifications) {
+    console.log('Email notifications disabled');
+    return true;
+  }
+
+  if (!EMAIL_CONFIG.smtp_host || !EMAIL_CONFIG.smtp_user || !EMAIL_CONFIG.smtp_pass) {
+    // console.log('SMTP configuration missing, skipping confirmation email');
+    return true;
+  }
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: EMAIL_CONFIG.smtp_host || 'smtp.gmail.com',
+      port: EMAIL_CONFIG.smtp_port || 587,
+      secure: false, // false for 587, true for 465
+      auth: {
+        user: EMAIL_CONFIG.smtp_user,
+        pass: EMAIL_CONFIG.smtp_pass
+      }
+    });
+
+    const confirmationEmailBody = createContactConfirmationEmailBody(contactData);
+
+    const mailOptions = {
+      from: `"${EMAIL_CONFIG.from_name}" <${EMAIL_CONFIG.from_email}>`,
+      to: contactData.email,
+      subject: 'Message Received - Axiom Startup Competition',
+      html: confirmationEmailBody
+    };
+
+    await transporter.sendMail(mailOptions);
+    // console.log('Contact confirmation email sent successfully');
+    return true;
+  } catch (error) {
+    console.error('Failed to send contact confirmation email:', error);
+    return false;
+  }
+}
+
 // Function to send email notification
 async function sendEmailNotification(contactData) {
   if (!EMAIL_CONFIG.send_notifications) {
@@ -90,20 +195,22 @@ async function sendEmailNotification(contactData) {
     return true;
   }
 
+
+
   if (!EMAIL_CONFIG.smtp_host || !EMAIL_CONFIG.smtp_user || !EMAIL_CONFIG.smtp_pass) {
-    console.log('SMTP configuration missing, skipping email');
+    // console.log('SMTP configuration missing, skipping email');
     return true;
   }
 
   try {
-    const transporter = nodemailer.createTransporter({
-      host: EMAIL_CONFIG.smtp_host,
-      port: EMAIL_CONFIG.smtp_port,
-      secure: EMAIL_CONFIG.smtp_port === 465,
-      auth: {
-        user: EMAIL_CONFIG.smtp_user,
-        pass: EMAIL_CONFIG.smtp_pass
-      }
+        const transporter = nodemailer.createTransport({
+        host: EMAIL_CONFIG.smtp_host || 'smtp.gmail.com',
+        port: EMAIL_CONFIG.smtp_port || 587,
+        secure: false, // false for 587, true for 465
+        auth: {
+            user: EMAIL_CONFIG.smtp_user,
+            pass: EMAIL_CONFIG.smtp_pass
+        }
     });
 
     const emailBody = createEmailBody(contactData);
@@ -117,7 +224,7 @@ async function sendEmailNotification(contactData) {
     };
 
     await transporter.sendMail(mailOptions);
-    console.log('Contact form email notification sent successfully');
+    // console.log('Contact form email notification sent successfully');
     return true;
   } catch (error) {
     console.error('Failed to send contact form email:', error);
@@ -143,7 +250,7 @@ function createCSVData(contactData) {
   return { filename, csvContent };
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -192,22 +299,31 @@ export default async function handler(req, res) {
     // Create CSV data (for logging)
     const { filename, csvContent } = createCSVData(contactData);
 
-    // Send email notification
+    // Send email notification to admin
     try {
       const emailSent = await sendEmailNotification(contactData);
-      console.log('Contact email notification result:', emailSent);
+      // console.log('Contact email notification result:', emailSent);
     } catch (error) {
       console.error('Error sending contact email:', error);
       // Don't fail the submission if email fails
     }
 
+    // Send confirmation email to contact submitter
+    try {
+      const confirmationSent = await sendContactConfirmationEmail(contactData);
+      // console.log('Contact confirmation email result:', confirmationSent);
+    } catch (error) {
+      console.error('Error sending contact confirmation email:', error);
+      // Don't fail the submission if email fails
+    }
+
     // Log the submission (since we can't persist files on Vercel)
-    console.log('New contact submission:', {
-      name: contactData.name,
-      email: contactData.email,
-      timestamp: new Date().toISOString(),
-      csvData: csvContent
-    });
+    // console.log('New contact submission:', {
+    //   name: contactData.name,
+    //   email: contactData.email,
+    //   timestamp: new Date().toISOString(),
+    //   csvData: csvContent
+    // });
 
     return res.status(200).json({ 
       success: true, 

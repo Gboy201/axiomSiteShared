@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Axiom Startups</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+</head>
+<body class="game-page">
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-title">Axiom</a>
+        </div>
+        <div class="nav-right">
+            <a href="apply.html" class="nav-link">Apply</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="sponsors.html" class="nav-link">Sponsors</a>
+            <a href="schedule.html" class="nav-link">Schedule</a>
+            <a href="team.html" class="nav-link">Team</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </nav>
+
+    <div id="game-container">
+        <!-- Game Canvas -->
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- Character Sprites -->
+        <img id="character-sprite" class="hidden" style="position: absolute; width: 100px; height: 100px;">
+        <canvas id="character-sprite-static" class="hidden" style="position: absolute; width: 100px; height: 100px;"></canvas>
+        
+        <!-- Title Overlay on Map -->
+        <div id="map-title-overlay" class="hidden">
+            <div class="map-title-content">
+                <div class="map-main-title">Axiom</div>
+                <div class="map-subtitle">Fueling Ambitious Youth</div>
+            </div>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div id="mobile-controls">
+            <div class="dpad-cross">
+                <button class="dpad-btn dpad-up" data-direction="up">
+                    <img src="arrow.png" alt="Up" class="arrow-icon arrow-up">
+                </button>
+                <button class="dpad-btn dpad-left" data-direction="left">
+                    <img src="arrow.png" alt="Left" class="arrow-icon arrow-left">
+                </button>
+                <button class="dpad-btn dpad-right" data-direction="right">
+                    <img src="arrow.png" alt="Right" class="arrow-icon arrow-right">
+                </button>
+                <button class="dpad-btn dpad-down" data-direction="down">
+                    <img src="arrow.png" alt="Down" class="arrow-icon arrow-down">
+                </button>
+            </div>
+
+        </div>
+
+        </div>
+
+        <!-- Room Modal -->
+        <div id="room-modal" class="hidden">
+            <div class="room-content">
+                <button id="close-room" class="close-btn">✕</button>
+                <div id="room-title"></div>
+                <div id="room-body"></div>
+                <div id="player-in-room"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="game.js"></script>
+    
+    <!-- Hamburger Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navRight = document.querySelector('.nav-right');
+
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navRight.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navRight.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!hamburger.contains(event.target) && !navRight.contains(event.target)) {
+                    hamburger.classList.remove('active');
+                    navRight.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
