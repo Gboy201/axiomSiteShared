@@ -10,7 +10,6 @@ if (!fs.existsSync('public')) {
 const itemsToCopy = [
       // HTML files
     'index.html',
-    'pages.html',
     'apply.html',
     'about.html',
     'contact.html',

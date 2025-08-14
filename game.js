@@ -599,15 +599,15 @@ class StartupQuest {
         const portal = this.portals[portalIndex];
         const position = this.getPortalPosition(portal);
         
-        // Define portal destinations by position - now go to connected pages
+        // Define portal destinations by position
         const portalDestinations = {
-            'top-left': 'pages.html#about-section',
-            'top-middle': 'pages.html#apply-section', 
-            'top-right': 'pages.html#sponsors-section',
-            'middle-left': 'pages.html#team-section',
-            'middle-right': 'pages.html#contact-section',
+            'top-left': 'about.html',
+            'top-middle': 'apply.html', 
+            'top-right': 'sponsors.html',
+            'middle-left': 'team.html',
+            'middle-right': 'contact.html',
             'bottom-left': 'https://lu.ma/7epaq2w3',
-            'bottom-right': 'pages.html#schedule-section'
+            'bottom-right': 'schedule.html'
         };
         
         const destination = portalDestinations[position];
