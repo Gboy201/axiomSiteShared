@@ -8,15 +8,16 @@ if (!fs.existsSync('public')) {
 
 // Files and directories to copy to public/
 const itemsToCopy = [
-  // HTML files
-  'index.html',
-  'apply.html',
-  'about.html',
-  'contact.html',
-  'schedule.html',
-  'sponsors.html',
-  'team.html',
-  'thank-you.html',
+      // HTML files
+    'index.html',
+    'pages.html',
+    'apply.html',
+    'about.html',
+    'contact.html',
+    'schedule.html',
+    'sponsors.html',
+    'team.html',
+    'thank-you.html',
   
   // CSS and JS files
   'styles.css',

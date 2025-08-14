@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="game-page">
+<body class="landing-page">
     <!-- Navigation Bar -->
     <nav id="navbar">
         <div class="nav-left">
@@ -33,7 +33,25 @@
         </div>
     </nav>
 
-    <div id="game-container">
+    <!-- Landing Section -->
+    <section id="landing-section">
+        <div class="landing-content">
+            <h1 class="landing-title">Axiom</h1>
+            <p class="landing-subtitle">Fueling Ambitious Youth</p>
+            <div class="landing-buttons">
+                <a href="contact.html" class="landing-btn contact-btn">Contact</a>
+                <a href="apply.html" class="landing-btn apply-btn">Apply</a>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToGame()">
+            <div class="scroll-arrow">⬇</div>
+            <p>Scroll to explore</p>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section id="game-section">
+        <div id="game-container">
         <!-- Game Canvas -->
         <canvas id="game-canvas"></canvas>
         
@@ -41,11 +59,11 @@
         <img id="character-sprite" class="hidden" style="position: absolute; width: 100px; height: 100px;">
         <canvas id="character-sprite-static" class="hidden" style="position: absolute; width: 100px; height: 100px;"></canvas>
         
-        <!-- Title Overlay on Map -->
+        <!-- Game Instructions Overlay -->
         <div id="map-title-overlay" class="hidden">
             <div class="map-title-content">
-                <div class="map-main-title">Axiom</div>
-                <div class="map-subtitle">Fueling Ambitious Youth</div>
+                <div class="map-main-title">Use the arrow keys to move around</div>
+                <div class="map-subtitle">Use the portals to teleport to different pages</div>
             </div>
         </div>
 
@@ -80,8 +98,8 @@
             </div>
         </div>
 
-
-    </div>
+        </div>
+    </section>
 
     <!-- Scroll Footer -->
     <div id="scroll-footer">
@@ -133,17 +151,14 @@
             });
         });
 
-        // Scroll footer functionality
-        const scrollFooter = document.getElementById('scroll-footer');
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 100) {
-                scrollFooter.classList.add('visible');
-            } else {
-                scrollFooter.classList.remove('visible');
-            }
-        });
+        // Smooth scroll to game section
+        function scrollToGame() {
+            document.getElementById('game-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // No footer on homepage - it's handled by other pages individually
     </script>
 </body>
 </html> 

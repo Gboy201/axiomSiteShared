@@ -179,7 +179,7 @@ class StartupQuest {
             // CRITICAL: Recalculate collision scaling factors with new map dimensions
             this.recalculateCollisionScaling();
             
-            // Update player starting position to center of your image
+            // Update player starting position to center horizontally, lower vertically
             this.player.x = this.mapWidth / 2;
             this.player.y = this.mapHeight / 2;
             
@@ -599,15 +599,15 @@ class StartupQuest {
         const portal = this.portals[portalIndex];
         const position = this.getPortalPosition(portal);
         
-        // Define portal destinations by position
+        // Define portal destinations by position - now go to connected pages
         const portalDestinations = {
-            'top-left': 'about.html',
-            'top-middle': 'apply.html', 
-            'top-right': 'sponsors.html',
-            'middle-left': 'team.html',
-            'middle-right': 'contact.html',
+            'top-left': 'pages.html#about-section',
+            'top-middle': 'pages.html#apply-section', 
+            'top-right': 'pages.html#sponsors-section',
+            'middle-left': 'pages.html#team-section',
+            'middle-right': 'pages.html#contact-section',
             'bottom-left': 'https://lu.ma/7epaq2w3',
-            'bottom-right': 'schedule.html'
+            'bottom-right': 'pages.html#schedule-section'
         };
         
         const destination = portalDestinations[position];
@@ -970,6 +970,11 @@ class StartupQuest {
         
         // Create bound handlers
         this.keydownHandler = (e) => {
+            // Prevent default scrolling behavior for arrow keys when in game
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
+                e.preventDefault();
+            }
+            
             this.keys[e.code] = true;
             // Temporary debug log for first load issues - remove after testing
             if (!this.firstKeyPressed) {
@@ -979,6 +984,11 @@ class StartupQuest {
         };
         
         this.keyupHandler = (e) => {
+            // Prevent default scrolling behavior for arrow keys when in game
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
+                e.preventDefault();
+            }
+            
             this.keys[e.code] = false;
         };
         
@@ -1057,6 +1067,7 @@ class StartupQuest {
         // Close room on escape
         document.addEventListener('keydown', (e) => {
             if (e.code === 'Escape' && !this.roomModal.classList.contains('hidden')) {
+                e.preventDefault();
                 this.closeRoom();
             }
         });
@@ -1538,7 +1549,7 @@ class StartupQuest {
         // Force a render to apply the opacity reset immediately
         this.render();
         
-        // Show title overlay on the map after game loads
+        // Show instructions overlay on the map after game loads
         this.mapTitleOverlay.classList.remove('hidden');
         
         // Force an immediate update of character sprite positioning with correct opacity
@@ -1672,7 +1683,7 @@ class StartupQuest {
                     // console.log(`📱 Player moved: (${this.player.x.toFixed(0)}, ${this.player.y.toFixed(0)}) via ${this.touchDirection}`);
                 }
                 
-                // Fade out title on first movement
+                // Fade out instructions on first movement
                 if (!this.titleFaded) {
                     this.mapTitleOverlay.style.opacity = '0';
                     this.titleFaded = true;
