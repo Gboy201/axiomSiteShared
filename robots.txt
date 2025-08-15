@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.axiomstartups.ca/sitemap.xml
+
+# Block backup and update directories
+Disallow: /backup*/
+Disallow: /updates/
+Disallow: /public/
+Disallow: /*.txt$
+Disallow: /*.json$
+Disallow: /api/
+
+# Allow important pages
+Allow: /apply.html
+Allow: /about.html
+Allow: /schedule.html
+Allow: /team.html
+Allow: /sponsors.html
+Allow: /contact.html
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.gif

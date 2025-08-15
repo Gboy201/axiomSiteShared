@@ -23,6 +23,10 @@ const itemsToCopy = [
   'stylesteam.css',
   'game.js',
   
+  // SEO files
+  'sitemap.xml',
+  'robots.txt',
+  
   // Image files
   'map.png',
   'Component 1.png',
