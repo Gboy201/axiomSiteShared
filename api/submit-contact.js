@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 // Email configuration - Optimized for Gmail
 const EMAIL_CONFIG = {
-  notification_email: process.env.NOTIFICATION_EMAIL || 'gursaaz@axiomstartups.com',
+  notification_email: process.env.NOTIFICATION_EMAIL || 'gursaaz@axiomstartups.com, sofiabodnar1729@gmail.com',
   email_subject: 'New Contact Form Submission - Axiom Startup',
   send_notifications: process.env.SEND_NOTIFICATIONS !== 'false', // true by default
   from_email: process.env.FROM_EMAIL || process.env.SMTP_USER || 'gursaaz@gmail.com',
