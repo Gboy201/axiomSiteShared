@@ -35,6 +35,7 @@ const itemsToCopy = [
   'ycf.png',
   'trexo.png',
   'jurisage.png',
+  'axiom-logo.png',
   'favicon.png',
   'arrow.png',
   'schedualeimg.png',
