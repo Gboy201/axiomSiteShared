@@ -43,20 +43,12 @@ body.game-page {
 body.form-page {
     overflow-y: auto;
     user-select: text;
-    background-image: url('bg.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
+    background: #000000;
 }
 
 /* Landing page styles - new homepage */
 body.landing-page {
-    background-image: url('bg.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
+    background: #000000;
     overflow-y: auto;
     user-select: text;
 }
@@ -68,38 +60,15 @@ body.landing-page {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 150px;
     position: relative;
-    background: rgba(0, 0, 0, 0.6);
+    background: transparent;
     overflow: hidden;
 }
 
-#landing-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(119, 196, 237, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(135, 206, 235, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(174, 204, 238, 0.2) 0%, transparent 50%);
-    animation: landingParticles 20s ease-in-out infinite;
-    z-index: 1;
-}
 
-@keyframes landingParticles {
-    0%, 100% {
-        opacity: 0.3;
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        opacity: 0.7;
-        transform: translateY(-20px) rotate(180deg);
-    }
-}
 
 .landing-content {
     text-align: center;
@@ -107,13 +76,26 @@ body.landing-page {
     position: relative;
 }
 
+.landing-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 0px;
+    margin-top: -20px;
+}
+
+.nav-logo {
+    height: 40px;
+    width: auto;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
 .landing-title {
     font-family: 'Block Craft', cursive, serif;
-    font-size: 6rem;
+    font-size: 4rem;
     color: #ffffff;
     margin: 0;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
-    animation: titleSlideIn 1.5s ease-out;
 }
 
 @keyframes titleGradient {
@@ -220,15 +202,14 @@ body.landing-page {
 }
 
 .apply-btn {
-    background: linear-gradient(45deg, #87ceeb, #77c3f0);
-    color: #1a1a2e;
-    border-color: #87ceeb;
+    background: linear-gradient(135deg, rgba(126, 195, 230, 1) 0%, rgba(9, 16, 99, 1) 100%);
+    color: #ffffff;
+    border-color: rgba(126, 195, 230, 1);
 }
 
 .apply-btn:hover {
-    background: linear-gradient(45deg, #77c3f0, #67b3e0);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(119, 179, 240, 0.5);
+    background: linear-gradient(135deg, rgba(136, 205, 240, 1) 0%, rgba(19, 26, 109, 1) 100%);
+    box-shadow: 0 8px 25px rgba(126, 195, 230, 0.5);
 }
 
 .scroll-indicator {
@@ -237,7 +218,6 @@ body.landing-page {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    animation: scrollPulse 2s ease-in-out infinite;
     z-index: 2;
 }
 
@@ -378,7 +358,7 @@ body:not(.game-page):not(.landing-page) {
 
 .nav-right {
     display: flex;
-    gap: 35px;
+    gap: 20px;
     align-items: center;
 }
 
@@ -2106,6 +2086,7 @@ body.game-page #page-container {
     min-height: 100vh;
     overflow: hidden;
     padding-top: 60px; /* Account for fixed navbar */
+    background: #000000 !important;
 }
 
 /* Interactive Hoverable Background Lines */
@@ -2489,7 +2470,7 @@ body.game-page #page-container {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     text-align: center;
     max-width: 1000px;
     margin: 0 auto;
@@ -2518,16 +2499,22 @@ body.game-page #page-container {
 }
 
 .sponsor-logo {
-    flex: 1 1 250px;
-    max-width: 300px;
-    min-width: 200px;
+    flex: 1 1 150px;
+    max-width: 200px;
+    min-width: 120px;
     margin-bottom: 0;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 20px;
+    background: #ffffff !important;
+    padding: 15px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.sponsor-logo:hover {
+    transform: scale(1.1);
 }
 
 .sponsor-logo img {
@@ -2580,8 +2567,8 @@ body.game-page #page-container {
     
     .sponsor-logo {
         flex: none;
-        min-width: 250px;
-        max-width: 300px;
+        min-width: 150px;
+        max-width: 200px;
     }
     
     .sponsor-image {
