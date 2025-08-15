@@ -27,8 +27,8 @@
         <div class="nav-right">
             <a href="apply.html" class="nav-link">Apply</a>
             <a href="about.html" class="nav-link">About</a>
-            <a href="sponsors.html" class="nav-link">Sponsors</a>
             <a href="team.html" class="nav-link">Team</a>
+            <a href="sponsors.html" class="nav-link">Sponsors</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
         <div class="hamburger" id="hamburger">
@@ -39,29 +39,28 @@
     </nav>
 
     <div id="page-container">
-        <!-- Interactive Stars Background -->
-        <div class="sponsors-stars-container">
-            <div class="sponsors-star" data-x="10" data-y="15"></div>
-            <div class="sponsors-star" data-x="25" data-y="85"></div>
-            <div class="sponsors-star" data-x="40" data-y="20"></div>
-            <div class="sponsors-star" data-x="75" data-y="35"></div>
-            <div class="sponsors-star" data-x="15" data-y="60"></div>
-            <div class="sponsors-star" data-x="90" data-y="70"></div>
-            <div class="sponsors-star" data-x="30" data-y="80"></div>
-            <div class="sponsors-star" data-x="60" data-y="10"></div>
-            <div class="sponsors-star" data-x="45" data-y="45"></div>
-            <div class="sponsors-star" data-x="80" data-y="65"></div>
-            <div class="sponsors-star" data-x="5" data-y="30"></div>
-            <div class="sponsors-star" data-x="85" data-y="5"></div>
-            <div class="sponsors-star" data-x="20" data-y="90"></div>
-            <div class="sponsors-star" data-x="65" data-y="75"></div>
-            <div class="sponsors-star" data-x="95" data-y="40"></div>
-            <div class="sponsors-star" data-x="35" data-y="55"></div>
-            <div class="sponsors-star" data-x="70" data-y="95"></div>
-            <div class="sponsors-star" data-x="55" data-y="25"></div>
-            <div class="sponsors-star" data-x="12" data-y="70"></div>
-            <div class="sponsors-star" data-x="88" data-y="20"></div>
-        </div>
+        <!-- Subtle Logo Lines Background -->
+        <svg class="logo-lines-background" viewBox="0 0 100 100" preserveAspectRatio="none" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;">
+            <!-- Very thin horizontal lines matching logo colors -->
+            <line x1="0" y1="15" x2="100" y2="15" stroke="#4A90E2" stroke-width="0.08" opacity="0.12" />
+            <line x1="0" y1="25" x2="100" y2="25" stroke="#4A90E2" stroke-width="0.08" opacity="0.08" />
+            <line x1="0" y1="35" x2="100" y2="35" stroke="#4A90E2" stroke-width="0.08" opacity="0.10" />
+            <line x1="0" y1="55" x2="100" y2="55" stroke="#4A90E2" stroke-width="0.08" opacity="0.06" />
+            <line x1="0" y1="75" x2="100" y2="75" stroke="#4A90E2" stroke-width="0.08" opacity="0.12" />
+            <line x1="0" y1="85" x2="100" y2="85" stroke="#4A90E2" stroke-width="0.08" opacity="0.08" />
+            
+            <!-- Very thin vertical lines -->
+            <line x1="20" y1="0" x2="20" y2="100" stroke="#7DD3FC" stroke-width="0.08" opacity="0.10" />
+            <line x1="40" y1="0" x2="40" y2="100" stroke="#7DD3FC" stroke-width="0.08" opacity="0.06" />
+            <line x1="60" y1="0" x2="60" y2="100" stroke="#7DD3FC" stroke-width="0.08" opacity="0.12" />
+            <line x1="80" y1="0" x2="80" y2="100" stroke="#7DD3FC" stroke-width="0.08" opacity="0.08" />
+            
+            <!-- Minimal diagonal accent lines -->
+            <line x1="10" y1="10" x2="30" y2="30" stroke="#4A90E2" stroke-width="0.05" opacity="0.15" />
+            <line x1="70" y1="20" x2="90" y2="40" stroke="#7DD3FC" stroke-width="0.05" opacity="0.15" />
+            <line x1="15" y1="70" x2="35" y2="90" stroke="#4A90E2" stroke-width="0.05" opacity="0.15" />
+            <line x1="65" y1="60" x2="85" y2="80" stroke="#7DD3FC" stroke-width="0.05" opacity="0.15" />
+        </svg>
         
         <div id="page-content">
             <h1 class="sponsors-title">Sponsors</h1>
@@ -86,24 +85,69 @@
                 </div>
             </div>
         </div>
+
+        <!-- Contact Section -->
+        <div id="contact-section" style="position: relative; z-index: 1; margin-top: 20px; padding-top: 10px;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; opacity: 0.15;">
+                <img src="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/axiom-logo.png" alt="" style="width: 600px; height: auto; filter: grayscale(70%);">
+            </div>
+            <div style="position: relative; z-index: 2;">
+            <h1 class="page-title" style="text-align: center;">Contact</h1>
+            
+            <div id="contact-content">
+                <p class="contact-intro" style="text-align: center; margin-bottom: 40px;">If you're a sponsor, participant, or have any questions, don't hesitate to contact us!</p>
+                
+                <div id="form-container">
+                    <form id="contact-form" action="/api/submit-contact" method="POST">
+                        
+                        <div class="form-group">
+                            <label for="name">Your Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="organization">Organization/Company (Optional)</label>
+                            <input type="text" id="organization" name="organization">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </div>
+
+                        <div id="form-message" class="form-message" style="display: none;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     
     <!-- Dragon Sprite -->
     <div class="page-dragon"></div>
     
     <!-- Scroll Footer -->
-    <div id="scroll-footer">
-        <div class="footer-section">
+    <div id="scroll-footer" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: nowrap;">
+        <div class="footer-section" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
             <span class="footer-label">Follow Us:</span>
-            <div class="footer-links">
+            <div class="footer-links" style="display: flex; gap: 8px;">
                 <a href="https://www.instagram.com/axiomstartups?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-link" title="Instagram"><i class="fa fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/axiom-startups/?viewAsMember=true" target="_blank" class="footer-link" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a>
             </div>
         </div>
-        <div class="footer-separator"></div>
-        <div class="footer-section">
+        <div class="footer-separator" style="display: none;"></div>
+        <div class="footer-section" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
             <span class="footer-label">Contact:</span>
-            <div class="footer-links">
+            <div class="footer-links" style="display: flex; gap: 8px;">
                 <a href="mailto:hello@axiomstartups.com" class="footer-link" title="Email Us"><i class="fa fa-envelope"></i></a>
                 <a href="contact.html" class="footer-link" title="Contact Form"><i class="fa fa-file-text"></i></a>
             </div>
@@ -160,116 +204,82 @@
             }
         });
 
-        // Interactive Stars
-        const stars = document.querySelectorAll('.sponsors-star');
-        let mouseX = 0, mouseY = 0;
-
-        // Initialize star positions
-        stars.forEach((star, index) => {
-            const x = parseFloat(star.dataset.x);
-            const y = parseFloat(star.dataset.y);
-            star.style.left = x + '%';
-            star.style.top = y + '%';
-            star.originalX = x;
-            star.originalY = y;
-        });
-
-        // Star physics properties
-        stars.forEach((star) => {
-            star.velocityX = 0;
-            star.velocityY = 0;
-            star.isMoving = false;
-        });
-
-        document.addEventListener('mousemove', function(e) {
-            mouseX = (e.clientX / window.innerWidth) * 100;
-            mouseY = (e.clientY / window.innerHeight) * 100;
+        // Contact Form JavaScript
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            stars.forEach((star) => {
-                const starX = parseFloat(star.style.left);
-                const starY = parseFloat(star.style.top);
+            // Show loading state
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Get form data
+                const formData = new FormData(document.getElementById('contact-form'));
+                const data = {
+                    name: formData.get('name'),
+                    organization: formData.get('organization') || '',
+                    email: formData.get('email'),
+                    message: formData.get('message')
+                };
                 
-                // Calculate distance from mouse to star
-                const deltaX = mouseX - starX;
-                const deltaY = mouseY - starY;
-                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                // Submit to Node.js API
+                const response = await fetch('/api/submit-contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
                 
-                // If mouse touches star (within 15% of screen), give it a push
-                if (distance < 15) {
-                    const force = (15 - distance) / 15; // Force gets stronger as mouse gets closer
-                    const angle = Math.atan2(deltaY, deltaX);
-                    
-                    // Give star velocity in direction away from mouse (like hitting a ball)
-                    const pushForce = force * 8; // Adjust this for how hard the "hit" is
-                    star.velocityX = -Math.cos(angle) * pushForce;
-                    star.velocityY = -Math.sin(angle) * pushForce;
-                    star.isMoving = true;
-                    
-                    // Visual effects when "hit"
-                    star.style.transform = 'scale(1.5)';
-                    star.style.filter = 'brightness(1.8)';
-                }
-            });
-        });
-
-        // Animation loop for star physics
-        function animateStars() {
-            stars.forEach((star) => {
-                if (star.isMoving) {
-                    // Apply velocity to position
-                    const currentX = parseFloat(star.style.left);
-                    const currentY = parseFloat(star.style.top);
-                    
-                    let newX = currentX + star.velocityX;
-                    let newY = currentY + star.velocityY;
-                    
-                    // Bounce off screen edges
-                    if (newX <= 0 || newX >= 100) {
-                        star.velocityX *= -0.7; // Bounce with some energy loss
-                        newX = Math.max(0, Math.min(100, newX));
-                    }
-                    if (newY <= 0 || newY >= 100) {
-                        star.velocityY *= -0.7; // Bounce with some energy loss
-                        newY = Math.max(0, Math.min(100, newY));
-                    }
-                    
-                    // Apply friction (stars slow down over time)
-                    star.velocityX *= 0.95;
-                    star.velocityY *= 0.95;
-                    
-                    // Update position
-                    star.style.left = newX + '%';
-                    star.style.top = newY + '%';
-                    
-                    // If star is moving very slowly, start returning to original position
-                    if (Math.abs(star.velocityX) < 0.1 && Math.abs(star.velocityY) < 0.1) {
-                        star.isMoving = false;
-                        star.velocityX = 0;
-                        star.velocityY = 0;
-                        
-                        // Reset visual effects
-                        star.style.transform = 'scale(1)';
-                        star.style.filter = 'brightness(1)';
-                    }
+                // Check if response is JSON before parsing
+                const contentType = response.headers.get('content-type');
+                let result;
+                
+                if (contentType && contentType.includes('application/json')) {
+                    result = await response.json();
                 } else {
-                    // Gradually return to original position when not moving
-                    const returnSpeed = 0.01;
-                    const currentX = parseFloat(star.style.left);
-                    const currentY = parseFloat(star.style.top);
-                    
-                    const newX = currentX + (star.originalX - currentX) * returnSpeed;
-                    const newY = currentY + (star.originalY - currentY) * returnSpeed;
-                    
-                    star.style.left = newX + '%';
-                    star.style.top = newY + '%';
+                    // Handle non-JSON responses (error pages, etc.)
+                    const textResponse = await response.text();
+                    console.error('Non-JSON response received:', textResponse);
+                    throw new Error(`Server returned ${response.status}: ${response.statusText}`);
                 }
-            });
+                
+                if (response.ok && result.success) {
+                    // Success
+                    showMessage(result.message || 'Thank you for contacting us! We\'ll get back to you soon.', 'success');
+                    document.getElementById('contact-form').reset();
+                } else {
+                    // Handle errors
+                    if (result.errors && Array.isArray(result.errors)) {
+                        showMessage('Please fix these errors:\n\n' + result.errors.join('\n'), 'error');
+                    } else {
+                        showMessage(result.error || 'An error occurred. Please try again.', 'error');
+                    }
+                }
+            } catch (error) {
+                console.error('Contact form submission error:', error);
+                showMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('form-message');
+            messageDiv.textContent = message;
+            messageDiv.className = `form-message ${type}`;
+            messageDiv.style.display = 'block';
             
-            requestAnimationFrame(animateStars);
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
         }
-        
-        // Start the animation loop
-        animateStars();
+
     </script>
 </body>
 </html> 

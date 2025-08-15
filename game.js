@@ -1237,7 +1237,7 @@ class StartupQuest {
                 `
             },
             registration: {
-                title: '📝 Register Now',
+                title: '📝 Luma',
                 content: `
 <h3>Ready to Join the Quest?</h3>
 <p>Registration is now open for Startup Quest 2024!</p>

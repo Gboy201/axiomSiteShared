@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/favicon.png">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/favicon.png">
+    <link rel="stylesheet" href="stylesteam.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +28,8 @@
         <div class="nav-right">
             <a href="apply.html" class="nav-link">Apply</a>
             <a href="about.html" class="nav-link">About</a>
-            <a href="sponsors.html" class="nav-link">Sponsors</a>
             <a href="team.html" class="nav-link">Team</a>
+            <a href="sponsors.html" class="nav-link">Sponsors</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
         <div class="hamburger" id="hamburger">
@@ -148,6 +149,69 @@
                     <span class="schedule-time">8:30 PM+:</span>
                     <span class="schedule-desc">After party on roof (Absolutely mandatory)</span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div id="team-section" style="margin-top: 80px; padding-top: 80px;">
+        
+        <!-- Geometric Lines Background -->
+        <svg class="team-geometric-background" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="15" y1="10" x2="85" y2="25" stroke="url(#teamGradLeft)" stroke-width="0.2" opacity="0.4" />
+            <line x1="85" y1="15" x2="15" y2="30" stroke="url(#teamGradRight)" stroke-width="0.2" opacity="0.3" />
+            <line x1="10" y1="75" x2="90" y2="90" stroke="url(#teamGradLeft)" stroke-width="0.3" opacity="0.5" />
+            <line x1="90" y1="70" x2="10" y2="85" stroke="url(#teamGradRight)" stroke-width="0.3" opacity="0.4" />
+            <polygon points="20,50 30,40 40,55 25,65" fill="url(#teamGradLeft)" opacity="0.1" />
+            <polygon points="75,35 85,25 95,40 80,50" fill="url(#teamGradRight)" opacity="0.1" />
+            
+            <defs>
+                <linearGradient id="teamGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#1E3A8A;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="teamGradRight" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#7DD3FC;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+        
+        <div id="team-content">
+            <h1>Team</h1>
+            
+            <div class="team-grid">
+                <!-- Row 1 -->
+                <a href="https://linkedin.com/in/sofiia-bodnar" target="_blank" class="team-member clickable">
+                    <h3>Sofia Bodnar</h3>
+                    <p class="team-role">Founder + Lead Organizer</p>
+                </a>
+                
+                <a href="https://linkedin.com/in/gursaaz-gund-728359246" target="_blank" class="team-member clickable">
+                    <h3>Gursaaz Gund</h3>
+                    <p class="team-role">Co-organizer</p>
+                </a>
+                
+                <a href="https://linkedin.com/in/sophia-f-2328b2374" target="_blank" class="team-member clickable">
+                    <h3>Sophia Funes</h3>
+                    <p class="team-role">Guest Coordinator</p>
+                </a>
+                
+                <!-- Row 2 -->
+                <a href="https://ca.linkedin.com/in/casper-dong-64b623207" target="_blank" class="team-member clickable">
+                    <h3>Casper Dong</h3>
+                    <p class="team-role">Advisor</p>
+                </a>
+                
+                <div class="team-member">
+                    <h3>Umaiza Reza</h3>
+                    <p class="team-role">Outreach</p>
+                </div>
+                
+                <a href="https://linkedin.com/in/summer-maloor-5540b5371" target="_blank" class="team-member clickable">
+                    <h3>Summer Maloor</h3>
+                    <p class="team-role">Outreach</p>
+                </a>
             </div>
         </div>
     </div>
@@ -289,6 +353,7 @@
                 scrollFooter.classList.remove('visible');
             }
         });
+
     </script>
 </body>
 </html> 
