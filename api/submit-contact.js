@@ -215,15 +215,20 @@ async function sendEmailNotification(contactData) {
 
     const emailBody = createEmailBody(contactData);
 
-    const mailOptions = {
-      from: `"${EMAIL_CONFIG.from_name}" <${EMAIL_CONFIG.from_email}>`,
-      to: EMAIL_CONFIG.notification_email,
-      subject: EMAIL_CONFIG.email_subject,
-      html: emailBody,
-      replyTo: contactData.email
-    };
+    // Send to multiple recipients separately
+    const recipients = EMAIL_CONFIG.notification_email.split(',').map(email => email.trim());
+    
+    for (const recipient of recipients) {
+      const mailOptions = {
+        from: `"${EMAIL_CONFIG.from_name}" <${EMAIL_CONFIG.from_email}>`,
+        to: recipient,
+        subject: EMAIL_CONFIG.email_subject,
+        html: emailBody,
+        replyTo: contactData.email
+      };
 
-    await transporter.sendMail(mailOptions);
+      await transporter.sendMail(mailOptions);
+    }
     // console.log('Contact form email notification sent successfully');
     return true;
   } catch (error) {
