@@ -98,6 +98,14 @@ body.landing-page {
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
 }
 
+.landing-date {
+    font-family: 'Orbit', sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 10px 0 0 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
 @keyframes titleGradient {
     0%, 100% {
         background-position: 0% 50%;
