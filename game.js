@@ -568,7 +568,7 @@ class StartupQuest {
                 this.debugStatus.style.color = '#00ff00'; // Green
             } else if (minDistance <= 70) {
                 this.debugStatus.textContent = `Status: In Range (≤70px)`;
-                this.debugStatus.style.color = '#ffff00'; // Yellow
+                this.debugStatus.style.color = '#ffffff'; // White
             } else {
                 this.debugStatus.textContent = `Status: Too Far (need ≤70px)`;
                 this.debugStatus.style.color = '#ff6666'; // Red
@@ -821,7 +821,7 @@ class StartupQuest {
         
         // Magic portals
         this.drawPortal(bgCtx, this.mapWidth*0.3, this.mapHeight*0.3, '#10b981');
-        this.drawPortal(bgCtx, this.mapWidth*0.7, this.mapHeight*0.7, '#f59e0b');
+        this.drawPortal(bgCtx, this.mapWidth*0.7, this.mapHeight*0.7, '#ffffff');
         
         // Central statue/crystal
         this.drawStatue(bgCtx, this.mapWidth/2, this.mapHeight/2 - 50);
@@ -841,7 +841,7 @@ class StartupQuest {
         ctx.fill();
         
         // Add shore
-        ctx.strokeStyle = '#fbbf24';
+        ctx.strokeStyle = '#ffffff';
         ctx.lineWidth = 8;
         ctx.stroke();
     }
@@ -900,7 +900,7 @@ class StartupQuest {
         ctx.fill();
         
         // Lava bubbles
-        ctx.fillStyle = '#fbbf24';
+        ctx.fillStyle = '#ffffff';
         for (let i = 0; i < 6; i++) {
             const x = centerX + (Math.random() - 0.5) * width * 0.8;
             const y = centerY + (Math.random() - 0.5) * height * 0.8;
@@ -1242,7 +1242,7 @@ class StartupQuest {
 <h3>Ready to Join the Quest?</h3>
 <p>Registration is now open for Startup Quest 2024!</p>
 
-<div style="background: #1a1a2e; padding: 15px; margin: 15px 0; border: 2px solid #ffd700;">
+<div style="background: #1a1a2e; padding: 15px; margin: 15px 0; border: 2px solid #ffffff;">
 <h4>🎯 What You Need:</h4>
 <p>• A brilliant startup idea</p>
 <p>• 3-minute pitch presentation</p>
@@ -1320,7 +1320,7 @@ class StartupQuest {
                 content: `
 <h3>We'd Love to Hear From You!</h3>
 
-<div style="background: #1a1a2e; padding: 15px; margin: 15px 0; border: 2px solid #ffd700;">
+<div style="background: #1a1a2e; padding: 15px; margin: 15px 0; border: 2px solid #ffffff;">
 <h4>📧 Email Contacts:</h4>
 <p><strong>General Inquiries:</strong> info@startupquest.com</p>
 <p><strong>Registration:</strong> register@startupquest.com</p>
@@ -1348,7 +1348,7 @@ class StartupQuest {
 
 <p>Startup Quest is more than just a pitch competition - it's an adventure that transforms innovative ideas into thriving businesses.</p>
 
-<div style="background: #1a1a2e; padding: 15px; margin: 15px 0; border: 2px solid #ffd700;">
+<div style="background: #1a1a2e; padding: 15px; margin: 15px 0; border: 2px solid #ffffff;">
 <h4>🎯 Our Mission:</h4>
 <p>To empower entrepreneurs by providing a platform to showcase their ideas, connect with investors, and join a community of innovators.</p>
 </div>
