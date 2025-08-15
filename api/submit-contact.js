@@ -10,7 +10,7 @@ const EMAIL_CONFIG = {
   smtp_host: process.env.SMTP_HOST || 'smtp.gmail.com',
   smtp_port: parseInt(process.env.SMTP_PORT) || 587,
   smtp_user: process.env.SMTP_USER || 'gursaaz@gmail.com',
-  smtp_pass: process.env.SMTP_PASS || 'ckcx hhxk zzdg tyra'  // your gmail app password
+  smtp_pass: process.env.SMTP_PASS // Remove hardcoded password - must be set in environment
 };
 
 // Function to sanitize input
