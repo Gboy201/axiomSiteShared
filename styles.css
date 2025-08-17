@@ -314,11 +314,7 @@ body.landing-page {
 
 /* Background for all non-homepage pages */
 body:not(.game-page):not(.landing-page) {
-    background-image: url('bg.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
+    background: #000000;
 }
 
 /* Navigation Bar */
