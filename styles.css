@@ -2785,38 +2785,7 @@ body.sponsors-page {
     }
 }
 
-@keyframes footerGradientMove {
-    0% {
-        background-position: 0% 50%;
-    }
-    25% {
-        background-position: 100% 75%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    75% {
-        background-position: 0% 25%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
 
-@keyframes footerGradientHover {
-    0% {
-        background-position: 0% 50%;
-    }
-    33% {
-        background-position: 100% 100%;
-    }
-    66% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
 
 @keyframes footerShimmer {
     0% {
@@ -2873,7 +2842,6 @@ body.sponsors-page {
     background: #7ec3e6;
     background: linear-gradient(90deg, rgba(126, 195, 230, 1) 0%, rgba(9, 16, 99, 1) 100%);
     background-size: 400% 400%;
-    animation: footerGradientMove 60s ease-in-out infinite;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-top: 2px solid rgba(125, 211, 252, 0.5);
@@ -2917,9 +2885,7 @@ body.landing-page #scroll-footer {
 }
 
 #scroll-footer:hover {
-    background: linear-gradient(45deg, rgba(119, 196, 237, 0.9), rgba(135, 206, 235, 0.9), rgba(174, 204, 238, 0.9), rgba(119, 196, 237, 0.9));
-    background-size: 400% 400%;
-    animation: footerGradientHover 4s ease-in-out infinite;
+    background: rgba(119, 196, 237, 0.5);
     box-shadow: 0 -6px 30px rgba(119, 196, 237, 0.4);
     border-top-color: rgba(125, 211, 252, 0.8);
 }
@@ -2984,15 +2950,13 @@ body.landing-page #scroll-footer {
 .footer-separator {
     width: 1px;
     height: 40px;
-    background: linear-gradient(to bottom, transparent, rgba(125, 211, 252, 0.3), transparent);
+    background: rgba(125, 211, 252, 0.3);
 }
 
 /* Mobile responsive */
 @media screen and (max-width: 768px) {
     #scroll-footer {
-        height: 60px;
-        gap: 20px;
-        padding: 0 15px;
+        display: none !important;
     }
     
     .footer-label {
