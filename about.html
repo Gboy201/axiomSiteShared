@@ -162,8 +162,6 @@
         </div>
     </div>
     
-    <!-- Moveable Dragon Sprite -->
-    <div class="page-dragon moveable" id="moveableDragon"></div>
     
     <!-- Scroll Footer -->
     <div id="scroll-footer">
@@ -221,70 +219,6 @@
             window.location.href = 'index.html';
         }
 
-        // Make dragon draggable
-        let isDragging = false;
-        let currentX;
-        let currentY;
-        let initialX;
-        let initialY;
-        let xOffset = 0;
-        let yOffset = 0;
-
-        const dragon = document.getElementById('moveableDragon');
-
-        dragon.addEventListener('mousedown', dragStart);
-        dragon.addEventListener('touchstart', dragStart);
-
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('touchmove', drag);
-
-        document.addEventListener('mouseup', dragEnd);
-        document.addEventListener('touchend', dragEnd);
-
-        function dragStart(e) {
-            if (e.type === 'touchstart') {
-                initialX = e.touches[0].clientX - xOffset;
-                initialY = e.touches[0].clientY - yOffset;
-            } else {
-                initialX = e.clientX - xOffset;
-                initialY = e.clientY - yOffset;
-            }
-
-            if (e.target === dragon) {
-                isDragging = true;
-            }
-        }
-
-        function drag(e) {
-            if (isDragging) {
-                e.preventDefault();
-                
-                if (e.type === 'touchmove') {
-                    currentX = e.touches[0].clientX - initialX;
-                    currentY = e.touches[0].clientY - initialY;
-                } else {
-                    currentX = e.clientX - initialX;
-                    currentY = e.clientY - initialY;
-                }
-
-                xOffset = currentX;
-                yOffset = currentY;
-
-                // Keep dragon within viewport bounds
-                const rect = dragon.getBoundingClientRect();
-                const maxX = window.innerWidth - rect.width;
-                const maxY = window.innerHeight - rect.height;
-                
-                xOffset = Math.max(0, Math.min(maxX, xOffset));
-                yOffset = Math.max(0, Math.min(maxY, yOffset));
-
-                dragon.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-            }
-        }
-
-        function dragEnd() {
-            isDragging = false;
-        }
 
         // Scroll footer functionality
         const scrollFooter = document.getElementById('scroll-footer');

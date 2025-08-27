@@ -80,8 +80,6 @@
         </div>
     </div>
     
-    <!-- Dragon Sprite -->
-    <div class="page-dragon"></div>
     
     <!-- Scroll Footer -->
     <div id="scroll-footer">
@@ -132,12 +130,6 @@
             });
         });
 
-        function goBackToGame() {
-            // Store the current page for portal positioning
-            localStorage.setItem('returnFromPage', 'schedule.html');
-            // Always return to homepage, positioned near the portal they came from
-            window.location.href = 'index.html';
-        }
 
         // Scroll footer functionality
         const scrollFooter = document.getElementById('scroll-footer');

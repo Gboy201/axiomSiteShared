@@ -172,10 +172,10 @@
     <!-- Landing Section -->
     <section id="landing-section">
         <div class="landing-content">
-            <img src="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/axiom-logo.png" alt="Axiom Startups Logo - Axiom Waterloo Startup Competition" class="landing-logo">
+            <img src="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/axiom-logo.png" alt="Axiom Logo" class="landing-logo">
             <h1 class="landing-title">Axiom</h1>
-            <h2 style="display: none;">Axiom Startups | Axiom Waterloo | Axiom Tech Week | Premier Startup Competition</h2>
             <p class="landing-date">September 9 at Builders Club</p>
+            <h2 style="display: none;">Axiom Startups | Axiom Waterloo | Axiom Tech Week | Premier Startup Competition</h2>
             
             <!-- SEO Content for Search Engines -->
             <div style="position: absolute; left: -9999px; top: -9999px; visibility: hidden;">
@@ -184,61 +184,6 @@
                 <p>Search for Axiom, Axiom Startups, Axiom Startup Competition, Axiom Waterloo, or AxiomWaterloo Tech Week to find Canada's leading startup event.</p>
             </div>
         </div>
-        <div class="scroll-indicator" onclick="scrollToGame()">
-            <div class="scroll-arrow">⬇</div>
-            <p>Scroll to explore</p>
-        </div>
-    </section>
-
-    <!-- Game Section -->
-    <section id="game-section">
-        <div id="game-container">
-        <!-- Game Canvas -->
-        <canvas id="game-canvas"></canvas>
-        
-        <!-- Character Sprites -->
-        <img id="character-sprite" class="hidden" style="position: absolute; width: 100px; height: 100px;">
-        <canvas id="character-sprite-static" class="hidden" style="position: absolute; width: 100px; height: 100px;"></canvas>
-        
-        <!-- Game Instructions Overlay -->
-        <div id="map-title-overlay" class="hidden">
-            <div class="map-title-content">
-                <div class="map-main-title">Use the arrow keys to move around</div>
-                <div class="map-subtitle">Use the portals to teleport to different pages</div>
-            </div>
-        </div>
-
-        <!-- Mobile Controls -->
-        <div id="mobile-controls">
-            <div class="dpad-cross">
-                <button class="dpad-btn dpad-up" data-direction="up">
-                    <img src="arrow.png" alt="Up" class="arrow-icon arrow-up">
-                </button>
-                <button class="dpad-btn dpad-left" data-direction="left">
-                    <img src="arrow.png" alt="Left" class="arrow-icon arrow-left">
-                </button>
-                <button class="dpad-btn dpad-right" data-direction="right">
-                    <img src="arrow.png" alt="Right" class="arrow-icon arrow-right">
-                </button>
-                <button class="dpad-btn dpad-down" data-direction="down">
-                    <img src="arrow.png" alt="Down" class="arrow-icon arrow-down">
-                </button>
-            </div>
-
-        </div>
-
-        </div>
-
-        <!-- Room Modal -->
-        <div id="room-modal" class="hidden">
-            <div class="room-content">
-                <button id="close-room" class="close-btn">✕</button>
-                <div id="room-title"></div>
-                <div id="room-body"></div>
-                <div id="player-in-room"></div>
-            </div>
-        </div>
-
         </div>
     </section>
 
@@ -261,8 +206,6 @@
         </div>
     </div>
 
-    <script src="game.js"></script>
-    
     <!-- Hamburger Menu JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -291,15 +234,6 @@
                 }
             });
         });
-
-        // Smooth scroll to game section
-        function scrollToGame() {
-            document.getElementById('game-section').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // No footer on homepage - it's handled by other pages individually
     </script>
 </body>
 </html> 
