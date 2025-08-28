@@ -157,9 +157,9 @@
         </div>
         <div class="nav-right">
             <a href="apply.html" class="nav-link">Apply</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="team.html" class="nav-link">Team</a>
-            <a href="sponsors.html" class="nav-link">Sponsors</a>
+            <a href="#info-section" class="nav-link">About</a>
+            <a href="#team-section" class="nav-link">Team</a>
+            <a href="#sponsors-section" class="nav-link">Sponsors</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
         <div class="hamburger" id="hamburger">
@@ -177,6 +177,202 @@
             <p class="landing-date">September 9 at Builders Club</p>
             <h2 style="display: none;">Axiom Startups | Axiom Waterloo | Axiom Tech Week | Premier Startup Competition</h2>
             
+            <!-- Expandable Info Section -->
+            <div class="info-section">
+                <div class="info-anchor" id="info-section" style="margin-top: -80px; padding-top: 80px;"></div>
+                <div class="info-buttons">
+                    <button class="info-btn" id="about-btn">about us</button>
+                    <button class="info-btn" id="why-btn">why</button>
+                </div>
+                
+                <div class="info-content" id="about-content" style="display: none;">
+                    <div class="info-box">
+                        <p>Axiom is a startup competition where ambitious youth get the chance to pitch their insane startup ideas to a panel of experienced judges. Participants receive feedback and compete for a 1k cash prize.</p>
+                        <p>Before the pitches, youth will have time to connect directly with 15–20 mentors, professionals offering guidance and support. There'll also be lots of chances to vibe with like-minded peers, including a round of startup trivia :D</p>
+                    </div>
+                </div>
+                
+                <div class="info-content" id="why-content" style="display: none;">
+                    <div class="info-box">
+                        <p>Axiom was created by a student for students to give ambitious youth the chance to connect with experts in tech, AI, entrepreneurship, and software development, and get insane opportunities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Section - Always visible below buttons -->
+            <div class="schedule-page" style="margin-top: 10px;">
+                <div class="schedule-container">
+                    <h1 class="schedule-title" style="font-family: 'Orbit', sans-serif;">schedule</h1>
+                    
+                    <div class="schedule-content">
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">4:30 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">doors open, grab food and start connecting</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">4:45 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">opening remarks</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">5:00 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">mentorship chats begin</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">6:00 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">mentorship ends, competition starts</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">7:30 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">dinner + startup trivia</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">8:15pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">winner is announced + closing remarks</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">8:30 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">get together on the roof</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="team-section-landing" id="team-section" style="margin-top: -30px;">
+                <!-- Geometric Wireframe Background -->
+                <svg class="team-wireframe-bg" viewBox="0 0 100 60" preserveAspectRatio="none">
+                    <!-- Connecting lines between team member boxes -->
+                    <!-- From Sofia to Casper and Gursaaz -->
+                    <line x1="50" y1="15" x2="20" y2="30" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    <line x1="50" y1="15" x2="80" y2="30" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    
+                    <!-- From Casper to Sofia, Summer, Sophia -->
+                    <line x1="20" y1="30" x2="50" y2="15" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    <line x1="20" y1="30" x2="15" y2="45" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    <line x1="20" y1="30" x2="50" y2="45" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    
+                    <!-- From Gursaaz to Sofia, Sophia, Umaiza -->
+                    <line x1="80" y1="30" x2="50" y2="15" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    <line x1="80" y1="30" x2="50" y2="45" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    <line x1="80" y1="30" x2="85" y2="45" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    
+                    <!-- Bottom row connections -->
+                    <line x1="15" y1="45" x2="50" y2="45" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    <line x1="50" y1="45" x2="85" y2="45" stroke="rgba(119, 196, 237, 0.6)" stroke-width="0.3" />
+                    
+                    <!-- Outer geometric frame -->
+                    <polygon points="50,5 90,25 90,55 50,55 10,55 10,25" fill="none" stroke="rgba(220, 232, 242, 0.4)" stroke-width="0.2" />
+                    <polygon points="40,10 60,10 85,35 60,50 40,50 15,35" fill="none" stroke="rgba(119, 196, 237, 0.3)" stroke-width="0.2" />
+                </svg>
+                
+                <div class="team-container">
+                    <h1 class="team-title" style="font-family: 'Orbit', sans-serif;">team</h1>
+                    
+                    <div class="team-triangle-layout">
+                        <!-- Top row - Sofia -->
+                        <div class="team-row team-row-1">
+                            <a href="https://linkedin.com/in/sofiia-bodnar" target="_blank" class="team-member-landing">
+                                <h3>Sofia Bodnar</h3>
+                                <p class="team-role">Founder + Lead Organizer</p>
+                            </a>
+                        </div>
+                        
+                        <!-- Middle row - Casper and Gursaaz -->
+                        <div class="team-row team-row-2">
+                            <a href="https://ca.linkedin.com/in/casper-dong-64b623207" target="_blank" class="team-member-landing">
+                                <h3>Casper Dong</h3>
+                                <p class="team-role">Advisor</p>
+                            </a>
+                            <a href="https://linkedin.com/in/gursaaz-gund-728359246" target="_blank" class="team-member-landing">
+                                <h3>Gursaaz Gund</h3>
+                                <p class="team-role">Advisor</p>
+                            </a>
+                        </div>
+                        
+                        <!-- Bottom row - 3 others -->
+                        <div class="team-row team-row-3">
+                            <a href="https://linkedin.com/in/sophia-f-2328b2374" target="_blank" class="team-member-landing">
+                                <h3>Sophia Funes</h3>
+                                <p class="team-role">Guest Coordinator</p>
+                            </a>
+                            <div class="team-member-landing">
+                                <h3>Umaiza Reza</h3>
+                                <p class="team-role">Guest Coordinator</p>
+                            </div>
+                            <a href="https://linkedin.com/in/summer-maloor-5540b5371" target="_blank" class="team-member-landing">
+                                <h3>Summer Maloor</h3>
+                                <p class="team-role">Guest Coordinator</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sponsors Section -->
+            <div class="sponsors-section-landing" id="sponsors-section" style="margin-top: 40px;">
+                <div class="sponsors-container">
+                    <h1 class="sponsors-title-landing" style="font-family: 'Orbit', sans-serif;">sponsors</h1>
+                    
+                    <div class="sponsors-grid">
+                        <!-- First row: 3 sponsors -->
+                        <div class="sponsors-row">
+                            <div class="sponsor-logo-landing">
+                                <a href="https://youthcreativityfund.ca" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/ycf.png" alt="YCF Logo">
+                                </a>
+                            </div>
+                            <div class="sponsor-logo-landing">
+                                <a href="https://www.trexorobotics.com" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/trexo.png" alt="Trexo Logo">
+                                </a>
+                            </div>
+                            <div class="sponsor-logo-landing">
+                                <a href="https://3e8robotics.com" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/3e8-logo-full.png" alt="3e8 Robotics Logo">
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Second row: 2 sponsors -->
+                        <div class="sponsors-row">
+                            <div class="sponsor-logo-landing">
+                                <a href="https://athenachat.bot/chatbot" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/Logo + text 420 x 100px black background.png" alt="Athena Chat Logo">
+                                </a>
+                            </div>
+                            <div class="sponsor-logo-landing">
+                                <a href="https://draftaid.io" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/draftaid.png" alt="Draftaid Logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Links Section -->
+            <div class="social-section-landing" style="margin-top: 30px;">
+                <div class="social-container">
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/axiomstartups?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-link">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/axiom-startups/?viewAsMember=true" target="_blank" class="social-link">
+                            <i class="fa fa-linkedin-square"></i>
+                        </a>
+                        <a href="mailto:hello@axiomstartups.com" class="social-link">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- SEO Content for Search Engines -->
             <div style="position: absolute; left: -9999px; top: -9999px; visibility: hidden;">
                 <h3>Axiom Startup Competition - Waterloo Tech Week Event</h3>
@@ -186,6 +382,7 @@
         </div>
         </div>
     </section>
+
 
     <!-- Scroll Footer -->
     <div id="scroll-footer">
@@ -231,6 +428,63 @@
                 if (!hamburger.contains(event.target) && !navRight.contains(event.target)) {
                     hamburger.classList.remove('active');
                     navRight.classList.remove('active');
+                }
+            });
+
+            // Smooth scrolling for section navigation
+            function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+
+            // Info section functionality
+            const aboutBtn = document.getElementById('about-btn');
+            const whyBtn = document.getElementById('why-btn');
+            const aboutContent = document.getElementById('about-content');
+            const whyContent = document.getElementById('why-content');
+
+            aboutBtn.addEventListener('click', function() {
+                const scheduleSection = document.querySelector('.schedule-page');
+                
+                // Hide why content
+                whyContent.style.display = 'none';
+                whyBtn.classList.remove('active');
+                
+                // Toggle about content
+                if (aboutContent.style.display === 'none' || aboutContent.style.display === '') {
+                    aboutContent.style.display = 'block';
+                    aboutBtn.classList.add('active');
+                    // Move schedule up when about content is open
+                    scheduleSection.classList.add('schedule-close-to-about');
+                } else {
+                    aboutContent.style.display = 'none';
+                    aboutBtn.classList.remove('active');
+                    // Reset schedule position when about content is closed
+                    scheduleSection.classList.remove('schedule-close-to-about');
+                }
+            });
+
+            whyBtn.addEventListener('click', function() {
+                const scheduleSection = document.querySelector('.schedule-page');
+                
+                // Hide about content
+                aboutContent.style.display = 'none';
+                aboutBtn.classList.remove('active');
+                // Reset schedule position when switching from about to why
+                scheduleSection.classList.remove('schedule-close-to-about');
+                
+                // Toggle why content
+                if (whyContent.style.display === 'none' || whyContent.style.display === '') {
+                    whyContent.style.display = 'block';
+                    whyBtn.classList.add('active');
+                } else {
+                    whyContent.style.display = 'none';
+                    whyBtn.classList.remove('active');
                 }
             });
         });
