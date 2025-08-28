@@ -181,7 +181,7 @@
             <div class="info-section">
                 <div class="info-anchor" id="info-section" style="margin-top: -80px; padding-top: 80px;"></div>
                 <div class="info-buttons">
-                    <button class="info-btn" id="about-btn">about us</button>
+                    <button class="info-btn" id="about-btn">about</button>
                     <button class="info-btn" id="why-btn">why</button>
                 </div>
                 
@@ -212,17 +212,17 @@
                         
                         <div class="schedule-item">
                             <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">4:45 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">mentorship sessions start</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">5:45 pm</span>
                             <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">opening remarks</span>
                         </div>
                         
                         <div class="schedule-item">
-                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">5:00 pm</span>
-                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">mentorship chats begin</span>
-                        </div>
-                        
-                        <div class="schedule-item">
                             <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">6:00 pm</span>
-                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">mentorship ends, competition starts</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">competition begins</span>
                         </div>
                         
                         <div class="schedule-item">
@@ -461,11 +461,29 @@
                     aboutBtn.classList.add('active');
                     // Move schedule up when about content is open
                     scheduleSection.classList.add('schedule-close-to-about');
+                    // Move team section up by same amount to maintain spacing
+                    const teamSection = document.getElementById('team-section');
+                    if (teamSection) teamSection.classList.add('team-close-to-schedule');
+                    // Move sponsors section up too to maintain tight spacing
+                    const sponsorsSection = document.getElementById('sponsors-section');
+                    if (sponsorsSection) sponsorsSection.classList.add('sponsors-close-to-schedule');
+                    // Move social section up too
+                    const socialSection = document.querySelector('.social-section-landing');
+                    if (socialSection) socialSection.classList.add('social-close-to-schedule');
                 } else {
                     aboutContent.style.display = 'none';
                     aboutBtn.classList.remove('active');
                     // Reset schedule position when about content is closed
                     scheduleSection.classList.remove('schedule-close-to-about');
+                    // Reset team section position
+                    const teamSection = document.getElementById('team-section');
+                    if (teamSection) teamSection.classList.remove('team-close-to-schedule');
+                    // Reset sponsors section position
+                    const sponsorsSection = document.getElementById('sponsors-section');
+                    if (sponsorsSection) sponsorsSection.classList.remove('sponsors-close-to-schedule');
+                    // Reset social section position
+                    const socialSection = document.querySelector('.social-section-landing');
+                    if (socialSection) socialSection.classList.remove('social-close-to-schedule');
                 }
             });
 
@@ -477,6 +495,15 @@
                 aboutBtn.classList.remove('active');
                 // Reset schedule position when switching from about to why
                 scheduleSection.classList.remove('schedule-close-to-about');
+                // Reset team section position
+                const teamSection = document.getElementById('team-section');
+                if (teamSection) teamSection.classList.remove('team-close-to-schedule');
+                // Reset sponsors section position
+                const sponsorsSection = document.getElementById('sponsors-section');
+                if (sponsorsSection) sponsorsSection.classList.remove('sponsors-close-to-schedule');
+                // Reset social section position
+                const socialSection = document.querySelector('.social-section-landing');
+                if (socialSection) socialSection.classList.remove('social-close-to-schedule');
                 
                 // Toggle why content
                 if (whyContent.style.display === 'none' || whyContent.style.display === '') {
