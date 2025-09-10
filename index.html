@@ -197,12 +197,45 @@
             <p class="landing-date">September 9 at Builders Club</p>
             <h2 style="display: none;">Sofia Bodnar's Axiom Startups | Premier Startup Competition | Waterloo Tech Week | Founded by Sofia Bodnar</h2>
             
+            <!-- Photo Carousel -->
+            <div class="event-carousel-container">
+                <div class="event-carousel" id="eventCarousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-slide active">
+                            <img src="crystalCave.png" alt="Event Photo 1" class="carousel-image">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="portal.png" alt="Event Photo 2" class="carousel-image">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="orc.png" alt="Event Photo 3" class="carousel-image">
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="carousel-btn carousel-prev" id="prevBtn">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn carousel-next" id="nextBtn">
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Dot indicators -->
+                    <div class="carousel-indicators">
+                        <button class="carousel-dot active" data-slide="0"></button>
+                        <button class="carousel-dot" data-slide="1"></button>
+                        <button class="carousel-dot" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Expandable Info Section -->
             <div class="info-section">
                 <div class="info-anchor" id="info-section" style="margin-top: -80px; padding-top: 80px;"></div>
                 <div class="info-buttons">
                     <button class="info-btn" id="about-btn">about</button>
                     <button class="info-btn" id="why-btn">why</button>
+                    <button class="info-btn" id="attend-btn">attend</button>
                 </div>
                 
                 <div class="info-content" id="about-content" style="display: none;">
@@ -215,50 +248,6 @@
                 <div class="info-content" id="why-content" style="display: none;">
                     <div class="info-box">
                         <p>Axiom was created by a student for students to give ambitious youth the chance to connect with experts in tech, AI, entrepreneurship, and software development, and get insane opportunities.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Schedule Section - Always visible below buttons -->
-            <div class="schedule-page" style="margin-top: 10px;">
-                <div class="schedule-container">
-                    <h1 class="schedule-title" style="font-family: 'Orbit', sans-serif;">schedule</h1>
-                    
-                    <div class="schedule-content">
-                        <div class="schedule-item">
-                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">4:30 pm</span>
-                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">doors open, grab food and start connecting</span>
-                        </div>
-                        
-                        <div class="schedule-item">
-                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">4:45 pm</span>
-                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">mentorship sessions start</span>
-                        </div>
-                        
-                        <div class="schedule-item">
-                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">5:45 pm</span>
-                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">opening remarks</span>
-                        </div>
-                        
-                        <div class="schedule-item">
-                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">6:00 pm</span>
-                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">competition begins</span>
-                        </div>
-                        
-                        <div class="schedule-item">
-                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">7:30 pm</span>
-                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">dinner + startup trivia</span>
-                        </div>
-                        
-                        <div class="schedule-item">
-                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">8:15pm</span>
-                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">winner is announced + closing remarks</span>
-                        </div>
-                        
-                        <div class="schedule-item">
-                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">8:30 pm</span>
-                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">get together on the roof</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -333,6 +322,51 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Schedule Section - Always visible below buttons -->
+            <div class="schedule-page" style="margin-top: 10px;">
+                <div class="schedule-container">
+                    <h1 class="schedule-title" style="font-family: 'Orbit', sans-serif;">schedule</h1>
+                    
+                    <div class="schedule-content">
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">4:30 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">doors open, grab food and start connecting</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">4:45 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">mentorship sessions start</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">5:45 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">opening remarks</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">6:00 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">competition begins</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">7:30 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">dinner + startup trivia</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">8:15pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">winner is announced + closing remarks</span>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <span class="schedule-time" style="font-family: 'Orbit', sans-serif;">8:30 pm</span>
+                            <span class="schedule-desc" style="font-family: 'Orbit', sans-serif;">get together on the roof</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Sponsors Section -->
             <div class="sponsors-section-landing" id="sponsors-section" style="margin-top: 40px;">
@@ -487,6 +521,7 @@
             // Info section functionality
             const aboutBtn = document.getElementById('about-btn');
             const whyBtn = document.getElementById('why-btn');
+            const attendBtn = document.getElementById('attend-btn');
             const aboutContent = document.getElementById('about-content');
             const whyContent = document.getElementById('why-content');
 
@@ -556,6 +591,55 @@
                     whyBtn.classList.remove('active');
                 }
             });
+
+            attendBtn.addEventListener('click', function() {
+                window.open('https://luma.com/7epaq2w3', '_blank');
+            });
+
+            // Carousel functionality
+            const carousel = document.getElementById('eventCarousel');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            
+            function showSlide(index) {
+                // Remove active class from current slide and dot
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                
+                // Update current slide index
+                currentSlide = index;
+                
+                // Add active class to new slide and dot
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+            
+            function nextSlide() {
+                const nextIndex = (currentSlide + 1) % totalSlides;
+                showSlide(nextIndex);
+            }
+            
+            function prevSlide() {
+                const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(prevIndex);
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showSlide(index));
+            });
+            
+            // Auto-play (optional - every 5 seconds)
+            setInterval(nextSlide, 5000);
         });
     </script>
 </body>
