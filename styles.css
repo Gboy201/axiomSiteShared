@@ -4327,7 +4327,7 @@ body.landing-page #scroll-footer {
 
 /* Event Carousel Styles */
 .event-carousel-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 30px auto 40px auto;
     padding: 0 20px;
 }
@@ -4344,7 +4344,7 @@ body.landing-page #scroll-footer {
 .carousel-inner {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 400px;
     overflow: hidden;
 }
 
@@ -4439,7 +4439,7 @@ body.landing-page #scroll-footer {
     }
     
     .carousel-inner {
-        height: 200px;
+        height: 300px;
     }
     
     .carousel-btn {
