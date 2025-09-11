@@ -2947,8 +2947,6 @@ body.landing-page #scroll-footer {
     margin-bottom: -5px;
 }
 
-
-
 /* Responsive schedule positioning when about content is active */
 .schedule-close-to-about {
     transform: translateY(-390px) !important; /* Phone/mobile default */
@@ -3097,6 +3095,45 @@ body.landing-page #scroll-footer {
         transform: translateY(-470px) !important;
     }
 }
+
+/* Participants section positioning when about content is active - SAME as schedule */
+.participants-close-to-schedule {
+    transform: translateY(-390px) !important; /* SAME as schedule */
+}
+
+/* Match schedule transforms EXACTLY for participants section */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .participants-close-to-schedule {
+        transform: translateY(-400px) !important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1199px) {
+    .participants-close-to-schedule {
+        transform: translateY(-380px) !important;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1366px) {
+    .participants-close-to-schedule {
+        transform: translateY(-390px) !important;
+    }
+}
+
+@media (min-width: 1200px) and (max-height: 900px) and (min-height: 500px) {
+    .participants-close-to-schedule {
+        transform: translateY(-370px) !important;
+    }
+}
+
+@media (min-width: 1367px) {
+    .participants-close-to-schedule {
+        transform: translateY(-470px) !important;
+    }
+}
+
+
+
 
 /* Landing page team section */
 .team-section-landing {

@@ -194,7 +194,8 @@
         <div class="landing-content">
             <img src="https://raw.githubusercontent.com/Gboy201/axiomSiteShared/main/axiom-logo.png" alt="Axiom Logo" class="landing-logo">
             <h1 class="landing-title">Axiom</h1>
-            <p class="landing-date">September 9 at Builders Club</p>
+            <p class="landing-date">Startup event for cracked and ambitious youth</p>
+            <p class="landing-date" style="font-size: 0.8em; margin-top: -10px; opacity: 0.8;">September 9, 2025</p>
             <h2 style="display: none;">Sofia Bodnar's Axiom Startups | Premier Startup Competition | Waterloo Tech Week | Founded by Sofia Bodnar</h2>
             
             <!-- Photo Carousel -->
@@ -233,20 +234,14 @@
             <div class="info-section">
                 <div class="info-anchor" id="info-section" style="margin-top: -80px; padding-top: 80px;"></div>
                 <div class="info-buttons">
-                    <button class="info-btn" id="about-btn">about</button>
-                    <button class="info-btn" id="why-btn">why</button>
+                    <button class="info-btn" id="why-btn">about</button>
                     <button class="info-btn" id="attend-btn">attend</button>
-                </div>
-                
-                <div class="info-content" id="about-content" style="display: none;">
-                    <div class="info-box">
-                        <p>Axiom is a startup competition where ambitious youth get the chance to pitch their insane startup ideas to a panel of experienced judges. Participants receive feedback and compete for a 1k cash prize.</p>
-                        <p>Before the pitches, youth will have time to connect directly with 15–20 mentors, professionals offering guidance and support. There'll also be lots of chances to vibe with like-minded peers, including a round of startup trivia :D</p>
-                    </div>
                 </div>
                 
                 <div class="info-content" id="why-content" style="display: none;">
                     <div class="info-box">
+                        <p>Axiom is a startup competition where ambitious youth get the chance to pitch their insane startup ideas to a panel of experienced judges. Participants receive feedback and compete for a 1k cash prize.</p>
+                        <p>Before the pitches, youth will have time to connect directly with 15–20 mentors, professionals offering guidance and support. There'll also be lots of chances to vibe with like-minded peers, including a round of startup trivia :D</p>
                         <p>Axiom was created by a student for students to give ambitious youth the chance to connect with experts in tech, AI, entrepreneurship, and software development, and get insane opportunities.</p>
                     </div>
                 </div>
@@ -300,7 +295,7 @@
                             </a>
                             <a href="https://linkedin.com/in/gursaaz-gund-728359246" target="_blank" class="team-member-landing">
                                 <h3>Gursaaz Gund</h3>
-                                <p class="team-role">Advisor</p>
+                                <p class="team-role">Advisor + Logistics</p>
                             </a>
                         </div>
                         
@@ -318,6 +313,45 @@
                                 <h3>Summer Maloor</h3>
                                 <p class="team-role">Guest Coordinator</p>
                             </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Participants Section -->
+            <div class="participants-section-landing" id="participants-section" style="margin-top: 40px;">
+                <div class="participants-container">
+                    <h1 class="team-title" style="font-family: 'Orbit', sans-serif;">participants</h1>
+                    
+                    <!-- Participants Photo Carousel -->
+                    <div class="event-carousel-container">
+                        <div class="event-carousel" id="participantsCarousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-slide active">
+                                    <img src="participant1.jpg" alt="Participant Photo 1" class="carousel-image">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="participant2.jpg" alt="Participant Photo 2" class="carousel-image">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="participant3.jpg" alt="Participant Photo 3" class="carousel-image">
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation arrows -->
+                            <button class="carousel-btn carousel-prev" id="participantsPrevBtn">
+                                <i class="fa fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next" id="participantsNextBtn">
+                                <i class="fa fa-chevron-right"></i>
+                            </button>
+                            
+                            <!-- Dot indicators -->
+                            <div class="carousel-indicators">
+                                <button class="carousel-dot active" data-slide="0"></button>
+                                <button class="carousel-dot" data-slide="1"></button>
+                                <button class="carousel-dot" data-slide="2"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -519,69 +553,11 @@
             }
 
             // Info section functionality
-            const aboutBtn = document.getElementById('about-btn');
             const whyBtn = document.getElementById('why-btn');
             const attendBtn = document.getElementById('attend-btn');
-            const aboutContent = document.getElementById('about-content');
             const whyContent = document.getElementById('why-content');
 
-            aboutBtn.addEventListener('click', function() {
-                const scheduleSection = document.querySelector('.schedule-page');
-                
-                // Hide why content
-                whyContent.style.display = 'none';
-                whyBtn.classList.remove('active');
-                
-                // Toggle about content
-                if (aboutContent.style.display === 'none' || aboutContent.style.display === '') {
-                    aboutContent.style.display = 'block';
-                    aboutBtn.classList.add('active');
-                    // Move schedule up when about content is open
-                    scheduleSection.classList.add('schedule-close-to-about');
-                    // Move team section up by same amount to maintain spacing
-                    const teamSection = document.getElementById('team-section');
-                    if (teamSection) teamSection.classList.add('team-close-to-schedule');
-                    // Move sponsors section up too to maintain tight spacing
-                    const sponsorsSection = document.getElementById('sponsors-section');
-                    if (sponsorsSection) sponsorsSection.classList.add('sponsors-close-to-schedule');
-                    // Move social section up too
-                    const socialSection = document.querySelector('.social-section-landing');
-                    if (socialSection) socialSection.classList.add('social-close-to-schedule');
-                } else {
-                    aboutContent.style.display = 'none';
-                    aboutBtn.classList.remove('active');
-                    // Reset schedule position when about content is closed
-                    scheduleSection.classList.remove('schedule-close-to-about');
-                    // Reset team section position
-                    const teamSection = document.getElementById('team-section');
-                    if (teamSection) teamSection.classList.remove('team-close-to-schedule');
-                    // Reset sponsors section position
-                    const sponsorsSection = document.getElementById('sponsors-section');
-                    if (sponsorsSection) sponsorsSection.classList.remove('sponsors-close-to-schedule');
-                    // Reset social section position
-                    const socialSection = document.querySelector('.social-section-landing');
-                    if (socialSection) socialSection.classList.remove('social-close-to-schedule');
-                }
-            });
-
             whyBtn.addEventListener('click', function() {
-                const scheduleSection = document.querySelector('.schedule-page');
-                
-                // Hide about content
-                aboutContent.style.display = 'none';
-                aboutBtn.classList.remove('active');
-                // Reset schedule position when switching from about to why
-                scheduleSection.classList.remove('schedule-close-to-about');
-                // Reset team section position
-                const teamSection = document.getElementById('team-section');
-                if (teamSection) teamSection.classList.remove('team-close-to-schedule');
-                // Reset sponsors section position
-                const sponsorsSection = document.getElementById('sponsors-section');
-                if (sponsorsSection) sponsorsSection.classList.remove('sponsors-close-to-schedule');
-                // Reset social section position
-                const socialSection = document.querySelector('.social-section-landing');
-                if (socialSection) socialSection.classList.remove('social-close-to-schedule');
-                
                 // Toggle why content
                 if (whyContent.style.display === 'none' || whyContent.style.display === '') {
                     whyContent.style.display = 'block';
@@ -640,6 +616,51 @@
             
             // Auto-play (optional - every 5 seconds)
             setInterval(nextSlide, 5000);
+
+            // Participants Carousel functionality
+            const participantsCarousel = document.getElementById('participantsCarousel');
+            const participantsSlides = participantsCarousel.querySelectorAll('.carousel-slide');
+            const participantsDots = participantsCarousel.querySelectorAll('.carousel-dot');
+            const participantsPrevBtn = document.getElementById('participantsPrevBtn');
+            const participantsNextBtn = document.getElementById('participantsNextBtn');
+            
+            let currentParticipantsSlide = 0;
+            const totalParticipantsSlides = participantsSlides.length;
+            
+            function showParticipantsSlide(index) {
+                // Remove active class from current slide and dot
+                participantsSlides[currentParticipantsSlide].classList.remove('active');
+                participantsDots[currentParticipantsSlide].classList.remove('active');
+                
+                // Update current slide index
+                currentParticipantsSlide = index;
+                
+                // Add active class to new slide and dot
+                participantsSlides[currentParticipantsSlide].classList.add('active');
+                participantsDots[currentParticipantsSlide].classList.add('active');
+            }
+            
+            function nextParticipantsSlide() {
+                const nextIndex = (currentParticipantsSlide + 1) % totalParticipantsSlides;
+                showParticipantsSlide(nextIndex);
+            }
+            
+            function prevParticipantsSlide() {
+                const prevIndex = (currentParticipantsSlide - 1 + totalParticipantsSlides) % totalParticipantsSlides;
+                showParticipantsSlide(prevIndex);
+            }
+            
+            // Event listeners for participants carousel
+            participantsNextBtn.addEventListener('click', nextParticipantsSlide);
+            participantsPrevBtn.addEventListener('click', prevParticipantsSlide);
+            
+            // Dot navigation for participants carousel
+            participantsDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showParticipantsSlide(index));
+            });
+            
+            // Auto-play for participants carousel (optional - every 6 seconds, offset from main carousel)
+            setInterval(nextParticipantsSlide, 6000);
         });
     </script>
 </body>
