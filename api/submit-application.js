@@ -1,31 +1,45 @@
 const nodemailer = require('nodemailer');
 
-// Email configuration - Optimized for Gmail
+// simple rate limiter
+const rateLimits = new Map();
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const userRequests = rateLimits.get(ip) || [];
+  const recentRequests = userRequests.filter(t => now - t < 3600000); // 1 hour
+
+  if (recentRequests.length >= 5) return false; // max 5 per hour
+
+  recentRequests.push(now);
+  rateLimits.set(ip, recentRequests);
+  return true;
+}
+
+// email config from env vars
 const EMAIL_CONFIG = {
-  notification_email: process.env.NOTIFICATION_EMAIL || 'gursaaz@axiomstartups.com, sofiabodnar1729@gmail.com',
+  notification_email: process.env.NOTIFICATION_EMAIL,
   email_subject: 'New Axiom Startup Application Received',
-  send_notifications: process.env.SEND_NOTIFICATIONS !== 'false', // true by default
-  from_email: process.env.FROM_EMAIL || process.env.SMTP_USER || 'gursaaz@gmail.com',
+  send_notifications: process.env.SEND_NOTIFICATIONS !== 'false',
+  from_email: process.env.FROM_EMAIL || process.env.SMTP_USER,
   from_name: 'Axiom Startup Website',
-  smtp_host: process.env.SMTP_HOST || 'smtp.gmail.com',
+  smtp_host: process.env.SMTP_HOST,
   smtp_port: parseInt(process.env.SMTP_PORT) || 587,
-  smtp_user: process.env.SMTP_USER || 'gursaaz@gmail.com',
-  smtp_pass: process.env.SMTP_PASS // Remove hardcoded password - must be set in environment
+  smtp_user: process.env.SMTP_USER,
+  smtp_pass: process.env.SMTP_PASS
 };
 
-// Function to sanitize input data
+// basic sanitization
 function sanitizeInput(data) {
   if (typeof data !== 'string') return data;
   return data.trim().replace(/[<>]/g, '');
 }
 
-// Function to validate email
+// validate email
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-// Function to validate URL
+// validate url
 function isValidURL(url) {
   if (!url || url.trim() === '') return true;
   try {
@@ -57,79 +71,79 @@ function createEmailBody(applicationData) {
     <body>
       <div class="container">
         <div class="header">
-          <h1>🚀 New Axiom Startup Application</h1>
+          <h1>New Axiom Startup Application</h1>
           <p>A new application has been submitted for the Axiom Startup Competition</p>
         </div>
         
         <div class="field">
-          <div class="field-label">👤 Full Name</div>
+          <div class="field-label">Full Name</div>
           <div class="field-value">${fullName}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">📧 Email Address</div>
+          <div class="field-label">Email Address</div>
           <div class="field-value">${email}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🎂 Age</div>
+          <div class="field-label">Age</div>
           <div class="field-value">${age}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🏫 School</div>
+          <div class="field-label">School</div>
           <div class="field-value">${school}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🚀 Startup Name</div>
+          <div class="field-label">Startup Name</div>
           <div class="field-value">${startup_name}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">👤 Participant Type</div>
+          <div class="field-label">Participant Type</div>
           <div class="field-value">${participant_type}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">👥 Team Members</div>
+          <div class="field-label">Team Members</div>
           <div class="field-value">${team_members}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">💡 Startup Idea</div>
+          <div class="field-label">Startup Idea</div>
           <div class="field-value">${startup_idea}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🎥 Google Meet Available</div>
+          <div class="field-label">Google Meet Available</div>
           <div class="field-value">${google_meet}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🔧 MVP Ready</div>
+          <div class="field-label">MVP Ready</div>
           <div class="field-value">${mvp_ready}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">📝 MVP Details</div>
+          <div class="field-label">MVP Details</div>
           <div class="field-value">${mvp_details}</div>
         </div>
         
         ${social_links ? `
         <div class="field">
-          <div class="field-label">📱 Social Links</div>
+          <div class="field-label">Social Links</div>
           <div class="field-value">${social_links}</div>
         </div>
         ` : ''}
         
         <div class="field">
-          <div class="field-label">⭐ Favorite Startup</div>
+          <div class="field-label">Favorite Startup</div>
           <div class="field-value">${favorite_startup}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">⚡ Response Speed</div>
+          <div class="field-label">Response Speed</div>
           <div class="field-value">${response_speed}</div>
         </div>
         
@@ -165,82 +179,82 @@ function createConfirmationEmailBody(applicationData) {
     <body>
       <div class="container">
         <div class="header">
-          <h1>🎉 Application Received!</h1>
+          <h1>Application Received!</h1>
           <p class="thank-you">Thank you for applying to the Axiom Startup Competition!</p>
           <p>We've received your application and will get back to you soon.</p>
         </div>
         
-        <h2 style="color: #ffd700; margin-bottom: 20px;">📋 Your Submission:</h2>
+        <h2 style="color: #ffd700; margin-bottom: 20px;">Your Submission:</h2>
         
         <div class="field">
-          <div class="field-label">👤 Full Name</div>
+          <div class="field-label">Full Name</div>
           <div class="field-value">${fullName}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">📧 Email Address</div>
+          <div class="field-label">Email Address</div>
           <div class="field-value">${email}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🎂 Age</div>
+          <div class="field-label">Age</div>
           <div class="field-value">${age}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🏫 School</div>
+          <div class="field-label">School</div>
           <div class="field-value">${school}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🚀 Startup Name</div>
+          <div class="field-label">Startup Name</div>
           <div class="field-value">${startup_name}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">👤 Participant Type</div>
+          <div class="field-label">Participant Type</div>
           <div class="field-value">${participant_type}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">👥 Team Members</div>
+          <div class="field-label">Team Members</div>
           <div class="field-value">${team_members}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">💡 Startup Idea</div>
+          <div class="field-label">Startup Idea</div>
           <div class="field-value">${startup_idea}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🎥 Google Meet Available</div>
+          <div class="field-label">Google Meet Available</div>
           <div class="field-value">${google_meet}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🔧 MVP Ready</div>
+          <div class="field-label">MVP Ready</div>
           <div class="field-value">${mvp_ready}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">📝 MVP Details</div>
+          <div class="field-label">MVP Details</div>
           <div class="field-value">${mvp_details}</div>
         </div>
         
         ${social_links ? `
         <div class="field">
-          <div class="field-label">📱 Social Links</div>
+          <div class="field-label">Social Links</div>
           <div class="field-value">${social_links}</div>
         </div>
         ` : ''}
         
         <div class="field">
-          <div class="field-label">⭐ Favorite Startup</div>
+          <div class="field-label">Favorite Startup</div>
           <div class="field-value">${favorite_startup}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">⚡ Response Speed</div>
+          <div class="field-label">Response Speed</div>
           <div class="field-value">${response_speed}</div>
         </div>
         
@@ -382,11 +396,10 @@ function createCSVData(applicationData) {
 }
 
 module.exports = async function handler(req, res) {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Credentials', true);
+  // basic cors
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     res.status(200).end();
@@ -395,6 +408,12 @@ module.exports = async function handler(req, res) {
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // check rate limit
+  const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(ip)) {
+    return res.status(429).json({ error: 'too many requests, try again later' });
   }
 
   try {

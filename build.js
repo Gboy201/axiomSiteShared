@@ -3,54 +3,8 @@ const path = require('path');
 
 // Create public directory if it doesn't exist
 if (!fs.existsSync('public')) {
-  fs.mkdirSync('public');
+  fs.mkdirSync('public', { recursive: true });
 }
-
-// Files and directories to copy to public/
-const itemsToCopy = [
-      // HTML files
-    'index.html',
-    'apply.html',
-    'about.html',
-    'contact.html',
-    'schedule.html',
-    'sponsors.html',
-    'team.html',
-    'thank-you.html',
-  
-  // CSS and JS files
-  'styles.css',
-  'stylesteam.css',
-  'game.js',
-  
-  // SEO files
-  'sitemap.xml',
-  'robots.txt',
-  
-  // Image files
-  'map.png',
-  'Component 1.png',
-  'Component 2.png',
-  'portal.png',
-  'dragon.gif',
-  'crystalCave.png',
-  'bg.png',
-  'goback.png',
-  'ycf.png',
-  'trexo.png',
-  'jurisage.png',
-  'axiom-logo.png',
-  'favicon.png',
-  'arrow.png',
-  'schedualeimg.png',
-  
-  // Font directories
-  'block-craft-font',
-  'Inconsolata',
-  
-  // API directory
-  'api'
-];
 
 function copyFileSync(source, target) {
   let targetFile = target;
@@ -71,7 +25,7 @@ function copyFolderRecursiveSync(source, target) {
   // Check if folder needs to be created or integrated
   const targetFolder = path.join(target, path.basename(source));
   if (!fs.existsSync(targetFolder)) {
-    fs.mkdirSync(targetFolder);
+    fs.mkdirSync(targetFolder, { recursive: true });
   }
 
   // Copy
@@ -88,22 +42,52 @@ function copyFolderRecursiveSync(source, target) {
   }
 }
 
-console.log('📦 Building static site for Vercel...');
+console.log('Building static site for Vercel...');
 
-// Copy each item to public/
-itemsToCopy.forEach(item => {
-  if (fs.existsSync(item)) {
-    if (fs.lstatSync(item).isDirectory()) {
-      console.log(`📁 Copying directory: ${item}`);
-      copyFolderRecursiveSync(item, 'public');
-    } else {
-      console.log(`📄 Copying file: ${item}`);
-      copyFileSync(item, path.join('public', item));
-    }
-  } else {
-    console.log(`⚠️  File not found: ${item}`);
+// Copy HTML files from src/pages/ to public/
+console.log('Copying HTML files...');
+const htmlFiles = fs.readdirSync('src/pages').filter(file => file.endsWith('.html'));
+htmlFiles.forEach(file => {
+  const sourcePath = path.join('src/pages', file);
+  const targetPath = path.join('public', file);
+  console.log(`  ${file}`);
+  copyFileSync(sourcePath, targetPath);
+});
+
+// Copy CSS files from src/css/ to public/css/
+console.log('Copying CSS directory...');
+if (!fs.existsSync('public/css')) {
+  fs.mkdirSync('public/css', { recursive: true });
+}
+const cssFiles = fs.readdirSync('src/css');
+cssFiles.forEach(file => {
+  const sourcePath = path.join('src/css', file);
+  const targetPath = path.join('public/css', file);
+  console.log(`  css/${file}`);
+  copyFileSync(sourcePath, targetPath);
+});
+
+// Copy assets directory from src/assets/ to public/assets/
+console.log('Copying assets directory...');
+if (fs.existsSync('src/assets')) {
+  copyFolderRecursiveSync('src/assets', 'public');
+}
+
+// Copy SEO files
+console.log('Copying SEO files...');
+const seoFiles = ['sitemap.xml', 'robots.txt'];
+seoFiles.forEach(file => {
+  if (fs.existsSync(file)) {
+    console.log(`  ${file}`);
+    copyFileSync(file, path.join('public', file));
   }
 });
 
-console.log('✅ Build complete! Files copied to public/ directory.');
-console.log('🚀 Ready for Vercel deployment.');
+// Copy API directory
+console.log('Copying API directory...');
+if (fs.existsSync('api')) {
+  copyFolderRecursiveSync('api', 'public');
+}
+
+console.log('Build complete! Files copied to public/ directory.');
+console.log('Ready for Vercel deployment.');

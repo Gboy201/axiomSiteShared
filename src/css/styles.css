@@ -1,21 +1,4 @@
-/* Block Craft Font */
-@font-face {
-    font-family: 'Block Craft';
-    src: url('./block-craft-font/BlockCraftMedium-PVLzd.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Inconsolata Font */
-@font-face {
-    font-family: 'Inconsolata';
-    src: url('./Inconsolata/Inconsolata-VariableFont_wdth,wght.ttf') format('truetype');
-    font-weight: 200 900;
-    font-stretch: 50% 200%;
-    font-style: normal;
-    font-display: swap;
-}
+/* Using system fonts for better performance and no loading glitches */
 
 /* 8-bit Fantasy Theme Styles */
 * {
@@ -25,7 +8,7 @@
 }
 
 body {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     margin: 0;
     padding: 0;
     overflow-y: auto; /* Enable scrolling by default */
@@ -92,7 +75,7 @@ body.landing-page {
 }
 
 .landing-title {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 4rem;
     color: #ffffff;
     margin: 0 0 20px 0;
@@ -101,7 +84,7 @@ body.landing-page {
 }
 
 .landing-date {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 1.1rem;
     color: #ffffff;
     margin: 0 0 40px 0;
@@ -130,7 +113,7 @@ body.landing-page {
 }
 
 .landing-subtitle {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 1.8rem;
     color: #87ceeb;
     margin: 20px 0 50px 0;
@@ -171,7 +154,7 @@ body.landing-page {
 
 .landing-btn {
     padding: 15px 40px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 1.2rem;
     font-weight: 600;
     text-decoration: none;
@@ -281,13 +264,13 @@ body:not(.game-page):not(.landing-page) {
     padding: 0 40px;
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    font-family: 'Block Craft', cursive, serif !important;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif !important; font-weight: 900;
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Force Orbit font on all navbar elements */
+/* Force Manrope font on all navbar elements */
 #navbar *, #navbar a, .nav-title, .nav-link {
-    font-family: 'Orbit', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
 }
 
 .nav-left {
@@ -296,7 +279,7 @@ body:not(.game-page):not(.landing-page) {
 }
 
 .nav-title {
-    font-family: 'Orbit', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
     font-size: 24px;
     color: #ffffff;
     font-weight: 400;
@@ -316,7 +299,7 @@ body:not(.game-page):not(.landing-page) {
 }
 
 .nav-link {
-    font-family: 'Orbit', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
     font-size: 16px;
     color: #cccccc;
     text-decoration: none;
@@ -454,7 +437,7 @@ body.game-page #page-container {
 }
 
 #page-content h1 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -465,7 +448,7 @@ body.game-page #page-container {
 }
 
 #page-content p {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 18px;
     color: #cccccc;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
@@ -517,7 +500,7 @@ body.game-page #page-container {
 }
 
 .map-main-title {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 1.5rem;
     color: #ffd700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -526,7 +509,7 @@ body.game-page #page-container {
 }
 
 .map-subtitle {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 1.2rem;
     color: #87ceeb;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -734,7 +717,7 @@ body.game-page #page-container {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 12px;
 }
 
@@ -909,7 +892,7 @@ body.game-page #page-container {
 }
 
 #apply-content h1 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -920,7 +903,7 @@ body.game-page #page-container {
 }
 
 #apply-content p {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 20px;
     color: #cccccc;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
@@ -950,7 +933,7 @@ body.game-page #page-container {
 
 .form-group label {
     display: block;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #ffffff;
@@ -974,7 +957,7 @@ body.game-page #page-container {
     border: 2px solid #808080;
     border-radius: 8px;
     color: #ffffff;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 14px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -999,7 +982,7 @@ body.game-page #page-container {
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: #888;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
 }
 
 .radio-group,
@@ -1013,7 +996,7 @@ body.game-page #page-container {
     align-items: flex-start;
     margin-bottom: 12px;
     cursor: pointer;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #cccccc;
@@ -1059,7 +1042,7 @@ body.game-page #page-container {
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
-    content: '✓';
+    content: '';
     color: #77c4ed;
     font-size: 14px;
     font-weight: bold;
@@ -1112,7 +1095,7 @@ body.game-page #page-container {
 }
 
 .submit-message {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #cccccc;
@@ -1130,7 +1113,7 @@ body.game-page #page-container {
     border: 2px solid #808080;
     border-radius: 8px;
     color: #ffffff;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
@@ -1154,7 +1137,7 @@ body.game-page #page-container {
     padding: 16px;
     border-radius: 8px;
     margin-bottom: 20px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 16px;
     text-align: center;
 }
@@ -1180,7 +1163,7 @@ body.game-page #page-container {
 }
 
 .thank-you-message h1 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -1190,7 +1173,7 @@ body.game-page #page-container {
 }
 
 .main-message {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 20px;
     color: #87CEEB;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -1203,7 +1186,7 @@ body.game-page #page-container {
 }
 
 .next-steps h2 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 32px;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -1237,7 +1220,7 @@ body.game-page #page-container {
 .step-number {
     background: linear-gradient(135deg, #87CEEB 0%, #87CEEB 100%);
     color: #000000;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 24px;
     font-weight: bold;
     width: 50px;
@@ -1251,14 +1234,14 @@ body.game-page #page-container {
 }
 
 .step-text h3 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 18px;
     color: #87CEEB;
     margin-bottom: 10px;
 }
 
 .step-text p {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 14px;
     color: #cccccc;
     line-height: 1.5;
@@ -1269,7 +1252,7 @@ body.game-page #page-container {
 }
 
 .cta-text {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 18px;
     color: #cccccc;
     margin-bottom: 30px;
@@ -1285,7 +1268,7 @@ body.game-page #page-container {
 .cta-btn {
     display: inline-block;
     padding: 16px 24px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
@@ -1326,7 +1309,7 @@ body.game-page #page-container {
 }
 
 .contact-info p {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 16px;
     color: #cccccc;
 }
@@ -1549,7 +1532,7 @@ body.game-page #page-container {
 }
 
 .about-title {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -1588,7 +1571,7 @@ body.game-page #page-container {
 }
 
 .about-description p {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 18px;
@@ -1613,7 +1596,7 @@ body.game-page #page-container {
 }
 
 .about-section h2 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 24px;
     color: #87CEEB;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -1622,7 +1605,7 @@ body.game-page #page-container {
 }
 
 .about-section p {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
@@ -1770,7 +1753,7 @@ body.game-page #page-container {
 
 /* Contact Page Styles */
 #contact-content {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 40px 40px 40px 40px;
     background: rgba(0, 0, 0, 0.4);
@@ -1782,7 +1765,7 @@ body.game-page #page-container {
 
 /* Page title outside the form box */
 .page-title {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     padding-top: 60px;
     font-size: 48px;
     color: #ffffff;
@@ -1796,7 +1779,7 @@ body.game-page #page-container {
 }
 
 .contact-intro {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Manrope', sans-serif;
     font-size: 1.1rem;
     color: #ffffff;
     text-align: center;
@@ -1815,11 +1798,11 @@ body.game-page #page-container {
 
 #contact-content label {
     display: block;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Manrope', sans-serif;
     font-size: 1rem;
     color: #ffffff;
     margin-bottom: 8px;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 #contact-content input[type="text"],
@@ -1827,7 +1810,7 @@ body.game-page #page-container {
 #contact-content textarea {
     width: 100%;
     padding: 12px 15px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 0.9rem;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid #808080;
@@ -1854,7 +1837,7 @@ body.game-page #page-container {
 #contact-content .submit-btn {
     width: 100%;
     padding: 15px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 1.1rem;
     background: transparent;
     color: #ffffff;
@@ -1882,7 +1865,7 @@ body.game-page #page-container {
     margin-top: 20px;
     padding: 15px;
     border-radius: 8px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 0.9rem;
     text-align: center;
 }
@@ -2129,7 +2112,7 @@ body.game-page #page-container {
 }
 
 .schedule-title {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 36px;
     color: #ffffff;
     text-align: center;
@@ -2154,7 +2137,7 @@ body.game-page #page-container {
     flex-wrap: wrap;
     align-items: baseline;
     margin-bottom: 32px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
     line-height: 1.4;
     border: 2px solid #87CEEB;
     border-radius: 8px;
@@ -2163,7 +2146,7 @@ body.game-page #page-container {
 }
 
 .schedule-time {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 18px;
@@ -2175,7 +2158,7 @@ body.game-page #page-container {
 }
 
 .schedule-desc {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 18px;
@@ -2409,7 +2392,7 @@ body.game-page #page-container {
 }
 
 .sponsors-announcement p {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 22px;
     color: #ffffff;
@@ -2457,13 +2440,13 @@ body.game-page #page-container {
 
 .sponsors-text {
     color: #ffffff;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 .sponsors-text p {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 18px;
@@ -2718,7 +2701,7 @@ body.sponsors-page {
 
 /* Sponsors Title - Same as About Title */
 .sponsors-title {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -2795,7 +2778,7 @@ body.landing-page #scroll-footer {
 }
 
 .footer-label {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
@@ -2823,7 +2806,7 @@ body.landing-page #scroll-footer {
     border-radius: 8px;
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 16px;
     font-weight: bold;
     transition: all 0.3s ease;
@@ -2908,7 +2891,7 @@ body.landing-page #scroll-footer {
 }
 
 .info-btn {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-size: 18px;
     color: #ffffff;
     background: transparent;
@@ -3161,7 +3144,7 @@ body.landing-page #scroll-footer {
 }
 
 .team-title {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 36px;
     color: #ffffff;
     text-align: center;
@@ -3218,7 +3201,7 @@ body.landing-page #scroll-footer {
 }
 
 .team-member-landing h3 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 18px;
     color: #ffffff;
     margin: 0 0 8px 0;
@@ -3227,7 +3210,7 @@ body.landing-page #scroll-footer {
 }
 
 .team-member-landing .team-role {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-size: 13px;
     color: #ffffff;
     margin: 0;
@@ -3287,7 +3270,7 @@ body.landing-page #scroll-footer {
 }
 
 .sponsors-title-landing {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 36px;
     color: #ffffff;
     text-align: center;
@@ -3445,7 +3428,7 @@ body.landing-page #scroll-footer {
 }
 
 .info-box p {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-size: 16px;
     color: #ffffff;
     line-height: 1.6;
@@ -3504,7 +3487,7 @@ body.landing-page #scroll-footer {
 }
 
 .landing-schedule-section h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 3rem;
     color: #ffffff;
     text-align: center;
@@ -3521,7 +3504,7 @@ body.landing-page #scroll-footer {
     position: absolute;
     background: rgba(0,0,0,0.9);
     color: white;
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 14px;
     padding: 15px;
     border: 1px solid #808080;
@@ -3611,7 +3594,7 @@ body.landing-page #scroll-footer {
     }
     
     .mobile-text-block p {
-        font-family: 'Orbit', sans-serif;
+        font-family: 'Manrope', sans-serif;
         font-size: 14px;
         color: #ffffff;
         line-height: 1.6;
@@ -3635,7 +3618,7 @@ body.landing-page #scroll-footer {
 }
 
 .schedule-section h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 3rem;
     color: #ffffff;
     text-align: center;
@@ -3652,7 +3635,7 @@ body.landing-page #scroll-footer {
     position: absolute;
     background: rgba(0,0,0,0.9);
     color: white;
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 14px;
     padding: 15px;
     border: 1px solid #808080;
@@ -3681,7 +3664,7 @@ body.landing-page #scroll-footer {
 }
 
 .team-section h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 3rem;
     color: #ffffff;
     text-align: center;
@@ -3706,14 +3689,14 @@ body.landing-page #scroll-footer {
 }
 
 .team-card h3 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 18px;
     color: #ffffff;
     margin: 0 0 8px 0;
 }
 
 .team-card p {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 14px;
     color: #87CEEB;
     margin: 0;
@@ -3761,7 +3744,7 @@ body.landing-page #scroll-footer {
     right: 0;
     width: 50%;
     height: 100%;
-    background: url('figma-bg.png') no-repeat center;
+    /* background: url('figma-bg.png') no-repeat center; */ /* File removed - unused */
     background-size: contain;
     opacity: 0.8;
 }
@@ -3790,7 +3773,7 @@ body.landing-page #scroll-footer {
 .text-block-1 p,
 .text-block-2 p,
 .text-block-3 p {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 14px;
     color: #ffffff;
     line-height: 1.6;
@@ -3813,7 +3796,7 @@ body.landing-page #scroll-footer {
 }
 
 .figma-schedule-section h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
     text-align: center;
@@ -3823,7 +3806,7 @@ body.landing-page #scroll-footer {
 .schedule-wireframe {
     width: 600px;
     height: 400px;
-    background: url('wireframe-line.png') no-repeat center;
+    /* background: url('wireframe-line.png') no-repeat center; */ /* File removed - unused */
     background-size: contain;
 }
 
@@ -3839,7 +3822,7 @@ body.landing-page #scroll-footer {
 }
 
 .figma-team-section h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
     text-align: center;
@@ -3871,14 +3854,14 @@ body.landing-page #scroll-footer {
 .team-card.umeliza { top: 80%; left: 80%; }
 
 .team-card h3 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 14px;
     color: #ffffff;
     margin: 0 0 5px 0;
 }
 
 .team-card p {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 11px;
     color: #87CEEB;
     margin: 0;
@@ -3896,7 +3879,7 @@ body.landing-page #scroll-footer {
 }
 
 .figma-sponsors-section h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
     text-align: center;
@@ -3914,7 +3897,7 @@ body.landing-page #scroll-footer {
 }
 
 .figma-contact-section h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
     text-align: center;
@@ -3943,7 +3926,7 @@ body.landing-page #scroll-footer {
     padding: 10px;
     margin-bottom: 10px;
     color: #ffffff;
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 12px;
     box-sizing: border-box;
 }
@@ -4044,7 +4027,7 @@ body.landing-page #scroll-footer {
 }
 
 .text-block p {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 14px;
     color: #ffffff;
     line-height: 1.6;
@@ -4067,7 +4050,7 @@ body.landing-page #scroll-footer {
 }
 
 .figma-schedule h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
     text-align: center;
@@ -4108,7 +4091,7 @@ body.landing-page #scroll-footer {
 
 .schedule-point span {
     display: block;
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     color: #ffffff;
     font-size: 12px;
 }
@@ -4131,7 +4114,7 @@ body.landing-page #scroll-footer {
 }
 
 .figma-team h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
     text-align: center;
@@ -4165,14 +4148,14 @@ body.landing-page #scroll-footer {
 .team-polygon.bottom-right { top: 75%; left: 75%; }
 
 .team-polygon h3 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 14px;
     color: #ffffff;
     margin: 0 0 5px 0;
 }
 
 .team-polygon p {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 11px;
     color: #87CEEB;
     margin: 0;
@@ -4190,7 +4173,7 @@ body.landing-page #scroll-footer {
 }
 
 .figma-sponsors h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
     text-align: center;
@@ -4208,7 +4191,7 @@ body.landing-page #scroll-footer {
 }
 
 .figma-contact h2 {
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
     text-align: center;
@@ -4245,7 +4228,7 @@ body.landing-page #scroll-footer {
     padding: 10px;
     margin-bottom: 10px;
     color: #ffffff;
-    font-family: 'Orbit', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 12px;
     box-sizing: border-box;
 }

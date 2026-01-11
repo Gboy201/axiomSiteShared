@@ -1,11 +1,4 @@
-/* Block Craft Font */
-@font-face {
-    font-family: 'Block Craft';
-    src: url('./block-craft-font/BlockCraftMedium-PVLzd.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+/* Using system fonts for better performance and no loading glitches */
 
 /* 8-bit Fantasy Theme Styles */
 * {
@@ -57,7 +50,7 @@ body.form-page {
 }
 
 .nav-title {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 24px;
     color: #ffffff;
     font-weight: bold;
@@ -78,7 +71,7 @@ body.form-page {
 }
 
 .nav-link {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 14px;
     color: #cccccc;
     text-decoration: none;
@@ -200,7 +193,7 @@ body.form-page {
 }
 
 #page-content h1 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -210,7 +203,7 @@ body.form-page {
 }
 
 #page-content p {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #cccccc;
@@ -263,7 +256,7 @@ body.form-page {
 }
 
 .map-main-title {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 5rem;
     color: white;
     text-shadow: 4px 4px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
@@ -272,7 +265,7 @@ body.form-page {
 }
 
 .map-subtitle {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 2rem;
     color: #cccccc;
     text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
@@ -639,7 +632,7 @@ body.form-page {
 }
 
 #apply-content h1 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -649,7 +642,7 @@ body.form-page {
 }
 
 #apply-content p {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 20px;
     color: #cccccc;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
@@ -680,7 +673,7 @@ body.form-page {
 
 .form-group label {
     display: block;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #ffffff;
@@ -705,7 +698,7 @@ body.form-page {
     border-image: linear-gradient(90deg, rgba(220, 232, 242, 1) 3%, rgba(119, 196, 237, 1) 95%) 1;
     border-radius: 8px;
     color: #ffffff;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 14px;
     transition: all 0.3s ease;
@@ -730,7 +723,7 @@ body.form-page {
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: #888;
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
 }
 
 .radio-group,
@@ -744,7 +737,7 @@ body.form-page {
     align-items: flex-start;
     margin-bottom: 12px;
     cursor: pointer;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #cccccc;
@@ -790,7 +783,7 @@ body.form-page {
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
-    content: '✓';
+    content: '';
     color: #77c4ed;
     font-size: 14px;
     font-weight: bold;
@@ -849,7 +842,7 @@ body.form-page {
 }
 
 .submit-message {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #cccccc;
@@ -867,7 +860,7 @@ body.form-page {
     border: none;
     border-radius: 8px;
     color: #000000;
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
@@ -891,7 +884,7 @@ body.form-page {
     padding: 16px;
     border-radius: 8px;
     margin-bottom: 20px;
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 16px;
     text-align: center;
 }
@@ -917,7 +910,7 @@ body.form-page {
 }
 
 .thank-you-message h1 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -927,7 +920,7 @@ body.form-page {
 }
 
 .main-message {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 20px;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -940,7 +933,7 @@ body.form-page {
 }
 
 .next-steps h2 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 32px;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -975,7 +968,7 @@ body.form-page {
     background: #dce8f2;
     background: linear-gradient(90deg, rgba(220, 232, 242, 1) 3%, rgba(119, 196, 237, 1) 95%);
     color: #000000;
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 24px;
     font-weight: bold;
     width: 50px;
@@ -989,14 +982,14 @@ body.form-page {
 }
 
 .step-text h3 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 18px;
     color: #ffffff;
     margin-bottom: 10px;
 }
 
 .step-text p {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 14px;
     color: #cccccc;
     line-height: 1.5;
@@ -1007,7 +1000,7 @@ body.form-page {
 }
 
 .cta-text {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 18px;
     color: #cccccc;
     margin-bottom: 30px;
@@ -1023,7 +1016,7 @@ body.form-page {
 .cta-btn {
     display: inline-block;
     padding: 16px 24px;
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
@@ -1065,7 +1058,7 @@ body.form-page {
 }
 
 .contact-info p {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 16px;
     color: #cccccc;
 }
@@ -1141,7 +1134,7 @@ body.form-page {
 }
 
 .about-title {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -1164,7 +1157,7 @@ body.form-page {
 }
 
 .about-description p {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #ffffff;
@@ -1184,7 +1177,7 @@ body.form-page {
 }
 
 .about-section h2 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 24px;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -1193,7 +1186,7 @@ body.form-page {
 }
 
 .about-section p {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #ffffff;
@@ -1297,7 +1290,7 @@ body.form-page {
     left: 20px;
     width: 80px;
     height: 80px;
-    background: url('dragon.gif') no-repeat center center;
+    /* background: url('dragon.gif') no-repeat center center; */ /* File removed - unused */
     background-size: contain;
     z-index: 1000;
     pointer-events: none;
@@ -1405,7 +1398,7 @@ body.form-page {
 }
 
 .contact-intro {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 1.1rem;
     color: #ffffff;
@@ -1426,7 +1419,7 @@ body.form-page {
 
 #contact-content label {
     display: block;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 1rem;
     color: #ffffff;
@@ -1438,7 +1431,7 @@ body.form-page {
 #contact-content textarea {
     width: 100%;
     padding: 12px 15px;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 0.9rem;
     background: rgba(255, 255, 255, 0.1);
@@ -1616,9 +1609,9 @@ body.form-page {
     }
 }
 
-/* Orbit Font */
+/* Manrope Font */
 .orbit-regular {
-  font-family: "Orbit", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -1652,7 +1645,7 @@ body.form-page {
 }
 
 .schedule-title {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 42px;
     color: #ffffff;
     text-align: center;
@@ -1671,7 +1664,7 @@ body.form-page {
     flex-wrap: wrap;
     align-items: baseline;
     margin-bottom: 32px;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     line-height: 1.4;
 }
@@ -1683,7 +1676,7 @@ body.form-page {
     min-width: 140px;
     flex-shrink: 0;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
 }
 
@@ -1692,7 +1685,7 @@ body.form-page {
     color: #ffffff;
     flex: 1;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
 }
 
@@ -2138,7 +2131,7 @@ body.form-page {
 }
 
 #team-content h1 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 48px;
     color: #ffffff;
     text-align: center;
@@ -2185,7 +2178,7 @@ body.form-page {
 }
 
 .team-member h3 {
-    font-family: 'Block Craft', cursive, serif;
+    font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif; font-weight: 900;
     font-size: 24px;
     color: #ffffff;
     margin: 0 0 15px 0;
@@ -2194,7 +2187,7 @@ body.form-page {
 }
 
 .team-role {
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #cccccc;
@@ -2249,7 +2242,7 @@ body.form-page {
 
 .sponsors-text {
     color: #ffffff;
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
 }
 
@@ -2258,7 +2251,7 @@ body.form-page {
     line-height: 1.6;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    font-family: "Orbit", sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
 }
 

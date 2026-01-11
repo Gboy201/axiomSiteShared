@@ -1,25 +1,39 @@
 const nodemailer = require('nodemailer');
 
-// Email configuration - Optimized for Gmail
+// simple rate limiter
+const rateLimits = new Map();
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const userRequests = rateLimits.get(ip) || [];
+  const recentRequests = userRequests.filter(t => now - t < 3600000); // 1 hour
+
+  if (recentRequests.length >= 10) return false; // max 10 per hour
+
+  recentRequests.push(now);
+  rateLimits.set(ip, recentRequests);
+  return true;
+}
+
+// email config from env vars
 const EMAIL_CONFIG = {
-  notification_email: process.env.NOTIFICATION_EMAIL || 'gursaaz@axiomstartups.com, sofiabodnar1729@gmail.com',
+  notification_email: process.env.NOTIFICATION_EMAIL,
   email_subject: 'New Contact Form Submission - Axiom Startup',
-  send_notifications: process.env.SEND_NOTIFICATIONS !== 'false', // true by default
-  from_email: process.env.FROM_EMAIL || process.env.SMTP_USER || 'gursaaz@gmail.com',
+  send_notifications: process.env.SEND_NOTIFICATIONS !== 'false',
+  from_email: process.env.FROM_EMAIL || process.env.SMTP_USER,
   from_name: 'Axiom Startup Contact Form',
-  smtp_host: process.env.SMTP_HOST || 'smtp.gmail.com',
+  smtp_host: process.env.SMTP_HOST,
   smtp_port: parseInt(process.env.SMTP_PORT) || 587,
-  smtp_user: process.env.SMTP_USER || 'gursaaz@gmail.com',
-  smtp_pass: process.env.SMTP_PASS // Remove hardcoded password - must be set in environment
+  smtp_user: process.env.SMTP_USER,
+  smtp_pass: process.env.SMTP_PASS
 };
 
-// Function to sanitize input
+// basic sanitization
 function sanitizeInput(input) {
   if (typeof input !== 'string') return input;
   return input.trim().replace(/[<>]/g, '');
 }
 
-// Function to validate email
+// validate email
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -46,29 +60,29 @@ function createEmailBody(contactData) {
     <body>
       <div class="container">
         <div class="header">
-          <h1>📬 New Contact Form Submission</h1>
+          <h1>New Contact Form Submission</h1>
           <p>Someone has reached out through the Axiom Startup website</p>
         </div>
         
         <div class="field">
-          <div class="field-label">👤 Name:</div>
+          <div class="field-label">Name:</div>
           <div class="field-value">${name}</div>
         </div>
         
         ${organization ? `
         <div class="field">
-          <div class="field-label">🏢 Organization/Company:</div>
+          <div class="field-label">Organization/Company:</div>
           <div class="field-value">${organization}</div>
         </div>
         ` : ''}
         
         <div class="field">
-          <div class="field-label">📧 Email Address:</div>
+          <div class="field-label">Email Address:</div>
           <div class="field-value">${email}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">💬 Message:</div>
+          <div class="field-label">Message:</div>
           <div class="field-value">${message}</div>
         </div>
         
@@ -105,30 +119,30 @@ function createContactConfirmationEmailBody(contactData) {
     <body>
       <div class="container">
         <div class="header">
-          <h1>📬 Message Received!</h1>
+          <h1>Message Received!</h1>
           <p class="thank-you">Thank you for contacting us!</p>
           <p>We've received your message and will get back to you soon.</p>
         </div>
         
-        <h2 style="color: #333; margin-bottom: 20px;">📋 Your Message:</h2>
+        <h2 style="color: #333; margin-bottom: 20px;">Your Message:</h2>
         
         <div class="field">
-          <div class="field-label">👤 Name</div>
+          <div class="field-label">Name</div>
           <div class="field-value">${name}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">🏢 Organization</div>
+          <div class="field-label">Organization</div>
           <div class="field-value">${organization}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">📧 Email</div>
+          <div class="field-label">Email</div>
           <div class="field-value">${email}</div>
         </div>
         
         <div class="field">
-          <div class="field-label">💬 Message</div>
+          <div class="field-label">Message</div>
           <div class="field-value">${message}</div>
         </div>
         
@@ -256,11 +270,10 @@ function createCSVData(contactData) {
 }
 
 module.exports = async function handler(req, res) {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Credentials', true);
+  // basic cors
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     res.status(200).end();
@@ -269,6 +282,12 @@ module.exports = async function handler(req, res) {
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // check rate limit
+  const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(ip)) {
+    return res.status(429).json({ error: 'too many requests, try again later' });
   }
 
   try {
