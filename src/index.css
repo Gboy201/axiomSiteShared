@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* white is the default theme; dark overrides via data-theme on <html> */
+:root {
+  --bg: #ffffff;
+  --text: #2b2b2b;
+  --heading: #000000;
+  --muted: #888888;
+  --icon-invert: 0;
+}
+
+:root[data-theme='dark'] {
+  --bg: #000000;
+  --text: #d0d0d0;
+  --heading: #ffffff;
+  --muted: #777777;
+  --icon-invert: 1;
+}
+
+/* fluid base size: scales with the viewport on any screen */
+html {
+  font-size: clamp(15px, 0.5vw + 13px, 19px);
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-row {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  color: var(--heading);
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
