@@ -21,24 +21,9 @@ main > footer {
   margin-top: auto;
 }
 
-/* social icons recolor per theme */
+/* social icons */
 .social-icon {
   height: 20px;
-  filter: invert(var(--icon-invert));
-  transition: filter 0.3s ease;
-}
-
-/* white/black theme toggle */
-.theme-toggle {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 1.1rem;
-  line-height: 1;
-  color: var(--heading);
-  transform: translateY(-3px);
 }
 
 /* small section labels */

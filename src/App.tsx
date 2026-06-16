@@ -1,7 +1,4 @@
 import './App.css'
-import { useState, useEffect } from 'react'
-
-type Theme = 'dark' | 'light'
 
 // external links
 const INSTAGRAM_URL = 'https://www.instagram.com/axiomstartups'
@@ -37,16 +34,6 @@ function renderSocials() {
 }
 
 function App() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const saved = localStorage.getItem('axiom-theme')
-    return saved === 'light' || saved === 'dark' ? saved : 'light'
-  })
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-    localStorage.setItem('axiom-theme', theme)
-  }, [theme])
-
   return (
     <main>
       <div className="header-row">
@@ -59,13 +46,6 @@ function App() {
           </p>
         </div>
         <nav className="nav-links">
-          <button
-            className="theme-toggle"
-            onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
-            aria-label="toggle theme"
-          >
-            {theme === 'dark' ? '☀' : '☾'}
-          </button>
           {renderSocials()}
         </nav>
       </div>
